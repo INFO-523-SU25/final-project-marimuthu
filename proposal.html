@@ -4148,7 +4148,7 @@ vertical-align: -.125em;
 </div>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
-<div id="51290b60" class="cell" data-execution_count="2">
+<div id="b080f5ad" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| message: false</span></span>
@@ -4254,7 +4254,7 @@ memory usage: 27.3+ MB</code></pre>
 <p>The dataset used in this project, <code>IN_youtube_trending_data.csv</code>, exceeds GitHub’s file size limit (100MB) and is therefore not included in the repository.</p>
 <p>To access the dataset, please use the following Google Drive link:</p>
 <p><a href="https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link">Download IN_youtube_trending_data.csv</a></p>
-<p>After downloading, place the file in the data folder:</p>
+<p>After downloading, place the file in the <code>data</code> folder.</p>
 <hr>
 </section>
 <section id="description-of-observations" class="level3">
@@ -4346,10 +4346,10 @@ memory usage: 27.3+ MB</code></pre>
 <h4 class="anchored" data-anchor-id="interpret-results">- Interpret results:</h4>
 <ul>
 <li>Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success</li>
-<li>Relate findings back to your research question and practical implications for content creators</li>
+<li>Relate findings back to the research question and practical implications for content creators</li>
 </ul>
 <p><strong>Note:</strong> The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</p>
-<div id="3036d043" class="cell" data-execution_count="3">
+<div id="eabd380a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#| message: false</span></span>
@@ -4486,7 +4486,7 @@ memory usage: 54.8+ KB</code></pre>
 <section id="role-in-final-project" class="level4">
 <h4 class="anchored" data-anchor-id="role-in-final-project">- Role in Final Project</h4>
 <p>This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.</p>
-<div id="f9d06ab6" class="cell" data-execution_count="4">
+<div id="27d465f6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">#| message: false</span></span>
@@ -4504,42 +4504,42 @@ memory usage: 54.8+ KB</code></pre>
 ==============================================================
 sample:
         videoId                                              title  \
-0  enjkcCdAlXc  Aavan Jaavan Song | WAR 2 | Hrithik Roshan, Ki...   
-1  mzr_F0NJMRs  Tehran | Official Trailer | John Abraham, Manu...   
-2  DiHB9uIVqcg  2025 PMWC at EWC Grand Finals D1 | English Co ...   
-3  vB7Y2wcBAZw  Salambala - Lyrical Video | Madharaasi | Sivak...   
-4  dY3WKy4Q8-4  Vash Level 2 - Gujarati Trailer | Janki B, Hit...   
+0  FbXOsVByKmk  They Call Him OG - Firestorm Lyric Video | Paw...   
+1  qeVfT2iLiu0  Coolie - Official Trailer | Superstar Rajinika...   
+2  VCqOcfGebaY  2025 PMWC at EWC Grand Finals D2 | English Co ...   
+3  enjkcCdAlXc  Aavan Jaavan Song | WAR 2 | Hrithik Roshan, Ki...   
+4  KkggRAFMg5c  Coolie | Trailer Reaction | Superstar Rajinika...   
 
-          channelTitle  categoryId           publishedAt  viewCount  \
-0                  YRF          10  2025-07-31T05:41:16Z   17733455   
-1          Zee Studios           1  2025-08-01T07:37:29Z    1251009   
-2          Snax Gaming          20  2025-08-01T15:34:05Z    1112144   
-3  Junglee Music Tamil          10  2025-07-31T14:45:54Z    3659593   
-4       Big Box Series          24  2025-08-01T05:30:03Z      84210   
+       channelTitle  categoryId           publishedAt  viewCount  likeCount  \
+0  Sony Music South          10  2025-08-02T08:53:07Z    4702482     609690   
+1            Sun TV          24  2025-08-02T13:30:25Z    9100175     582157   
+2       Snax Gaming          20  2025-08-02T15:55:41Z    1068085      54783   
+3               YRF          10  2025-07-31T05:41:16Z   20938348     319958   
+4     LifeofShazzam          24  2025-08-02T14:15:38Z     240889      21255   
 
-   likeCount  commentCount    duration  
-0     273415       13674.0        PT4M  
-1      56911        2596.0     PT2M40S  
-2      67823          50.0  PT4H40M51S  
-3     136660        4896.0     PT3M57S  
-4       5735         424.0     PT1M57S  
+   commentCount   duration  
+0         26849     PT4M6S  
+1         26555     PT3M2S  
+2           109  PT4H51M1S  
+3         14989       PT4M  
+4          1101    PT8M20S  
 ==============================================================
 Info:
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 50 entries, 0 to 49
 Data columns (total 9 columns):
- #   Column        Non-Null Count  Dtype  
----  ------        --------------  -----  
- 0   videoId       50 non-null     object 
- 1   title         50 non-null     object 
- 2   channelTitle  50 non-null     object 
- 3   categoryId    50 non-null     int64  
- 4   publishedAt   50 non-null     object 
- 5   viewCount     50 non-null     int64  
- 6   likeCount     50 non-null     int64  
- 7   commentCount  49 non-null     float64
- 8   duration      50 non-null     object 
-dtypes: float64(1), int64(3), object(5)
+ #   Column        Non-Null Count  Dtype 
+---  ------        --------------  ----- 
+ 0   videoId       50 non-null     object
+ 1   title         50 non-null     object
+ 2   channelTitle  50 non-null     object
+ 3   categoryId    50 non-null     int64 
+ 4   publishedAt   50 non-null     object
+ 5   viewCount     50 non-null     int64 
+ 6   likeCount     50 non-null     int64 
+ 7   commentCount  50 non-null     int64 
+ 8   duration      50 non-null     object
+dtypes: int64(4), object(5)
 memory usage: 3.6+ KB</code></pre>
 </div>
 </div>
@@ -4594,7 +4594,7 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <p>Unlike static CSVs, the YouTube Data API enables <strong>ongoing and scalable access</strong> to up-to-date video trends. This can: - Help validate whether patterns found in Dataset 1 still apply today<br>
 - Provide real-time insights for content creators<br>
 - Support future business tools like dashboards, content calendars, or trend detection systems</p>
-<p>This small sample demonstrates the ability to connect your project to <strong>live data streams</strong> — a powerful step toward applied analytics.</p>
+<p>This small sample demonstrates the ability to connect my project to <strong>live data streams</strong> — a powerful step toward applied analytics.</p>
 <hr>
 </section>
 <section id="variables-in-the-sample" class="level3">
@@ -5255,7 +5255,7 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-66"><a href="#cb8-66"></a></span>
 <span id="cb8-67"><a href="#cb8-67"></a><span class="co">[</span><span class="ot">Download IN_youtube_trending_data.csv</span><span class="co">](https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link)</span></span>
 <span id="cb8-68"><a href="#cb8-68"></a></span>
-<span id="cb8-69"><a href="#cb8-69"></a>After downloading, place the file in the data folder:</span>
+<span id="cb8-69"><a href="#cb8-69"></a>After downloading, place the file in the <span class="in">`data`</span> folder.</span>
 <span id="cb8-70"><a href="#cb8-70"></a></span>
 <span id="cb8-71"><a href="#cb8-71"></a>---</span>
 <span id="cb8-72"><a href="#cb8-72"></a></span>
@@ -5337,7 +5337,7 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-148"><a href="#cb8-148"></a></span>
 <span id="cb8-149"><a href="#cb8-149"></a><span class="fu">#### - Interpret results:</span></span>
 <span id="cb8-150"><a href="#cb8-150"></a><span class="ss">- </span>Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success</span>
-<span id="cb8-151"><a href="#cb8-151"></a><span class="ss">- </span>Relate findings back to your research question and practical implications for content creators</span>
+<span id="cb8-151"><a href="#cb8-151"></a><span class="ss">- </span>Relate findings back to the research question and practical implications for content creators</span>
 <span id="cb8-152"><a href="#cb8-152"></a></span>
 <span id="cb8-153"><a href="#cb8-153"></a>**Note:** The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</span>
 <span id="cb8-154"><a href="#cb8-154"></a></span>
@@ -5490,7 +5490,7 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-305"><a href="#cb8-305"></a><span class="ss">- </span>Provide real-time insights for content creators  </span>
 <span id="cb8-306"><a href="#cb8-306"></a><span class="ss">- </span>Support future business tools like dashboards, content calendars, or trend detection systems</span>
 <span id="cb8-307"><a href="#cb8-307"></a></span>
-<span id="cb8-308"><a href="#cb8-308"></a>This small sample demonstrates the ability to connect your project to **live data streams** — a powerful step toward applied analytics.</span>
+<span id="cb8-308"><a href="#cb8-308"></a>This small sample demonstrates the ability to connect my project to **live data streams** — a powerful step toward applied analytics.</span>
 <span id="cb8-309"><a href="#cb8-309"></a></span>
 <span id="cb8-310"><a href="#cb8-310"></a>---</span>
 <span id="cb8-311"><a href="#cb8-311"></a></span>
