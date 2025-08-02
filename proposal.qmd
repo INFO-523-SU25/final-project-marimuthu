@@ -36,10 +36,11 @@ import pandas as pd
 
 df = pd.read_csv("data/IN_youtube_trending_data.csv")
 print("shape:\n",df.shape)
-print("===================================================================================")
+print("==============================================================")
 print("sample:\n",df.head())
-print("===================================================================================")
-print("Info:\n",df.info())
+print("==============================================================")
+print("Info:")
+df.info()
 ```
 
 ## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
@@ -50,6 +51,18 @@ print("Info:\n",df.info())
 - **Collected by:** Kaggle user [@rsrishav](https://www.kaggle.com/rsrishav)  
 - **Date Collected:** The dataset was last updated in 2023  
 - **How it was collected:** Video metadata was scraped daily from YouTube’s trending page in India using YouTube API and stored as structured CSVs.
+
+---
+
+### Data Access
+
+The dataset used in this project, `IN_youtube_trending_data.csv`, exceeds GitHub’s file size limit (100MB) and is therefore not included in the repository.
+
+To access the dataset, please use the following Google Drive link:
+
+[Download IN_youtube_trending_data.csv](https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link)
+
+After downloading, place the file in the data folder:
 
 ---
 
@@ -145,10 +158,11 @@ To answer the research question, I will:
 
 df2 = pd.read_csv("data/top-1000-trending-youtube-videos.csv")
 print("shape:\n",df2.shape)
-print("===================================================================================")
+print("==============================================================")
 print("sample:\n",df2.head())
-print("===================================================================================")
-print("Info:\n",df2.info())
+print("==============================================================")
+print("Info:")
+df2.info()
 ```
 
 ## Dataset 2: Top 1000 Trending YouTube Videos (Kaggle)
@@ -233,10 +247,11 @@ This dataset will serve as a focused benchmark of top-performing content. While 
 
 df3 = pd.read_csv("data/youtube_api_sample.csv")
 print("shape:\n",df3.shape)
-print("===================================================================================")
+print("==============================================================")
 print("sample:\n",df3.head())
-print("===================================================================================")
-print("Info:\n",df3.info())
+print("==============================================================")
+print("Info:")
+df3.info()
 ```
 ## Dataset 3: YouTube Trending Videos via API (India)
 
