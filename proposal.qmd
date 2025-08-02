@@ -34,7 +34,7 @@ import pandas as pd
 #| message: false
 ## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 
-df = pd.read_csv("data/IN_youtube_trending_data.csv")
+df = pd.read_csv("../data/IN_youtube_trending_data.csv")
 print("shape:\n",df.shape)
 print("==============================================================")
 print("sample:\n",df.head())
@@ -157,7 +157,7 @@ To answer the research question, I will:
 #| message: false
 ## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)
 
-df2 = pd.read_csv("data/top-1000-trending-youtube-videos.csv")
+df2 = pd.read_csv("../data/top-1000-trending-youtube-videos.csv")
 print("shape:\n",df2.shape)
 print("==============================================================")
 print("sample:\n",df2.head())
@@ -247,7 +247,7 @@ This dataset will serve as a focused benchmark of top-performing content. While 
 #| message: false
 ## Dataset 3: YouTube Trending Videos via API (India)
 
-df3 = pd.read_csv("data/youtube_api_sample.csv")
+df3 = pd.read_csv("../data/youtube_api_sample.csv")
 print("shape:\n",df3.shape)
 print("==============================================================")
 print("sample:\n",df3.head())
