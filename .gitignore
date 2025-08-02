@@ -6,3 +6,4 @@
 /.quarto/
 _site/*
 data/IN_youtube_trending_data.csv
+.env
