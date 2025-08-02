@@ -4147,21 +4147,21 @@ vertical-align: -.125em;
 </div>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
-<div id="02f51242" class="cell" data-execution_count="2">
+<div id="5d4d94c3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| message: false</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
 <span id="cb2-5"><a href="#cb2-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/IN_youtube_trending_data.csv&quot;</span>)</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.shape)</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.head())</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (251277, 16)
-============================================================================================================
+===================================================================================
 sample:
        video_id                                              title  \
 0  Iot0eF6EoNA  Sadak 2 | Official Trailer | Sanjay | Pooja | ...   
@@ -4204,7 +4204,7 @@ sample:
 2             False  CLASH official music video performed by DILJIT...  
 3             False  Gulshan Kumar and T-Series presents Bhushan Ku...  
 4             False  VYRL Originals brings to you ‘Baarish’ - the b...  
-============================================================================================================
+===================================================================================
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 251277 entries, 0 to 251276
 Data columns (total 16 columns):
@@ -4340,21 +4340,21 @@ Info:
 <li>Relate findings back to your research question and practical implications for content creators</li>
 </ul>
 <p><strong>Note:</strong> The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</p>
-<div id="5aea4947" class="cell" data-execution_count="3">
+<div id="7edfa8b6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#| message: false</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
 <span id="cb4-5"><a href="#cb4-5"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/top-1000-trending-youtube-videos.csv&quot;</span>)</span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.shape)</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.head())</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb4-10"><a href="#cb4-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (1000, 7)
-============================================================================================================
+===================================================================================
 sample:
     rank                                              Video    Video views  \
 0     1  20 Tennis shots if they were not filmed, NOBOD...      3,471,237   
@@ -4369,7 +4369,7 @@ sample:
 2     293,563      NaN    Music       2024  
 3  44,861,602      NaN    Music       2015  
 4          38      NaN      NaN       2021  
-============================================================================================================
+===================================================================================
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 1000 entries, 0 to 999
 Data columns (total 7 columns):
@@ -4477,21 +4477,21 @@ Info:
 <section id="role-in-final-project" class="level4">
 <h4 class="anchored" data-anchor-id="role-in-final-project">- Role in Final Project</h4>
 <p>This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.</p>
-<div id="e258bd82" class="cell" data-execution_count="4">
+<div id="f3b1248d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">#| message: false</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/youtube_api_sample.csv&quot;</span>)</span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.shape)</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.head())</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb6-10"><a href="#cb6-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (50, 9)
-============================================================================================================
+===================================================================================
 sample:
         videoId                                              title  \
 0  enjkcCdAlXc  Aavan Jaavan Song | WAR 2 | Hrithik Roshan, Ki...   
@@ -4513,7 +4513,7 @@ sample:
 2      67823          50.0  PT4H40M51S  
 3     136660        4896.0     PT3M57S  
 4       5735         424.0     PT1M57S  
-============================================================================================================
+===================================================================================
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 50 entries, 0 to 49
 Data columns (total 9 columns):
@@ -5220,9 +5220,9 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-40"><a href="#cb8-40"></a></span>
 <span id="cb8-41"><a href="#cb8-41"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/IN_youtube_trending_data.csv&quot;</span>)</span>
 <span id="cb8-42"><a href="#cb8-42"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.shape)</span>
-<span id="cb8-43"><a href="#cb8-43"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-43"><a href="#cb8-43"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-44"><a href="#cb8-44"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.head())</span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-46"><a href="#cb8-46"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.info())</span>
 <span id="cb8-47"><a href="#cb8-47"></a><span class="in">```</span></span>
 <span id="cb8-48"><a href="#cb8-48"></a></span>
@@ -5329,9 +5329,9 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-151"><a href="#cb8-151"></a></span>
 <span id="cb8-152"><a href="#cb8-152"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/top-1000-trending-youtube-videos.csv&quot;</span>)</span>
 <span id="cb8-153"><a href="#cb8-153"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.shape)</span>
-<span id="cb8-154"><a href="#cb8-154"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-154"><a href="#cb8-154"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-155"><a href="#cb8-155"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.head())</span>
-<span id="cb8-156"><a href="#cb8-156"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-156"><a href="#cb8-156"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-157"><a href="#cb8-157"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.info())</span>
 <span id="cb8-158"><a href="#cb8-158"></a><span class="in">```</span></span>
 <span id="cb8-159"><a href="#cb8-159"></a></span>
@@ -5417,9 +5417,9 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-241"><a href="#cb8-241"></a></span>
 <span id="cb8-242"><a href="#cb8-242"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/youtube_api_sample.csv&quot;</span>)</span>
 <span id="cb8-243"><a href="#cb8-243"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.shape)</span>
-<span id="cb8-244"><a href="#cb8-244"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-244"><a href="#cb8-244"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-245"><a href="#cb8-245"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.head())</span>
-<span id="cb8-246"><a href="#cb8-246"></a><span class="bu">print</span>(<span class="st">&quot;============================================================================================================&quot;</span>)</span>
+<span id="cb8-246"><a href="#cb8-246"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
 <span id="cb8-247"><a href="#cb8-247"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.info())</span>
 <span id="cb8-248"><a href="#cb8-248"></a><span class="in">```</span></span>
 <span id="cb8-249"><a href="#cb8-249"></a><span class="fu">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
