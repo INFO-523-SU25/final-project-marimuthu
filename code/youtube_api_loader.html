@@ -338,42 +338,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace with your API key</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"AIzaSyA4FELpXJzOCbbJaQ2RjKHkog_h0lJGEPY"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">"youtube"</span>, <span class="st">"v3"</span>, developerKey<span class="op">=</span>API_KEY)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Call API to get trending videos in India</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">"snippet,statistics,contentDetails"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    chart<span class="op">=</span><span class="st">"mostPopular"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    regionCode<span class="op">=</span><span class="st">"IN"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    maxResults<span class="op">=</span><span class="dv">50</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> request.execute()</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and flatten data</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>records <span class="op">=</span> []</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> response[<span class="st">"items"</span>]:</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"videoId"</span>: item[<span class="st">"id"</span>],</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: item[<span class="st">"snippet"</span>][<span class="st">"title"</span>],</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"channelTitle"</span>: item[<span class="st">"snippet"</span>][<span class="st">"channelTitle"</span>],</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"categoryId"</span>: item[<span class="st">"snippet"</span>][<span class="st">"categoryId"</span>],</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"publishedAt"</span>: item[<span class="st">"snippet"</span>][<span class="st">"publishedAt"</span>],</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"viewCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"viewCount"</span>),</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"likeCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"likeCount"</span>),</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">"commentCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"commentCount"</span>),</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"duration"</span>: item[<span class="st">"contentDetails"</span>].get(<span class="st">"duration"</span>),</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    records.append(record)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to DataFrame and save</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(records)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"head </span><span class="ch">\n</span><span class="st">"</span>,df.head())</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"data/youtube_api_sample.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Saved trending videos to data/youtube_api_sample.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace with your API key</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>load_dotenv()  <span class="co"># take environment variables from .env</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> os.getenv(<span class="st">"YOUTUBE_API_KEY"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">"youtube"</span>, <span class="st">"v3"</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Call API to get trending videos in India</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">"snippet,statistics,contentDetails"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    chart<span class="op">=</span><span class="st">"mostPopular"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    regionCode<span class="op">=</span><span class="st">"IN"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    maxResults<span class="op">=</span><span class="dv">50</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> request.execute()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and flatten data</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>records <span class="op">=</span> []</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> response[<span class="st">"items"</span>]:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"videoId"</span>: item[<span class="st">"id"</span>],</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: item[<span class="st">"snippet"</span>][<span class="st">"title"</span>],</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"channelTitle"</span>: item[<span class="st">"snippet"</span>][<span class="st">"channelTitle"</span>],</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"categoryId"</span>: item[<span class="st">"snippet"</span>][<span class="st">"categoryId"</span>],</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">"publishedAt"</span>: item[<span class="st">"snippet"</span>][<span class="st">"publishedAt"</span>],</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"viewCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"viewCount"</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"likeCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"likeCount"</span>),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"commentCount"</span>: item[<span class="st">"statistics"</span>].get(<span class="st">"commentCount"</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"duration"</span>: item[<span class="st">"contentDetails"</span>].get(<span class="st">"duration"</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    records.append(record)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to DataFrame and save</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(records)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"head </span><span class="ch">\n</span><span class="st">"</span>,df.head())</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"../data/youtube_api_sample.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Saved trending videos to data/youtube_api_sample.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>head 
         videoId                                              title  \
@@ -384,18 +387,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 4  KkggRAFMg5c  Coolie | Trailer Reaction | Superstar Rajinika...   
 
        channelTitle categoryId           publishedAt viewCount likeCount  \
-0  Sony Music South         10  2025-08-02T08:53:07Z   4702482    609690   
-1            Sun TV         24  2025-08-02T13:30:25Z   9100175    582157   
-2       Snax Gaming         20  2025-08-02T15:55:41Z   1068085     54783   
-3               YRF         10  2025-07-31T05:41:16Z  20938348    319958   
-4     LifeofShazzam         24  2025-08-02T14:15:38Z    240889     21255   
+0  Sony Music South         10  2025-08-02T08:53:07Z   4880098    641168   
+1            Sun TV         24  2025-08-02T13:30:25Z   9825816    588809   
+2       Snax Gaming         20  2025-08-02T15:55:41Z   1076294     54896   
+3               YRF         10  2025-07-31T05:41:16Z  21057184    320699   
+4     LifeofShazzam         24  2025-08-02T14:15:38Z    267028     21712   
 
   commentCount   duration  
-0        26849     PT4M6S  
-1        26555     PT3M2S  
-2          109  PT4H51M1S  
-3        14989       PT4M  
-4         1101    PT8M20S  
+0        27050     PT4M6S  
+1        26836     PT3M2S  
+2          115  PT4H51M1S  
+3        15007       PT4M  
+4         1126    PT8M20S  
 Saved trending videos to data/youtube_api_sample.csv</code></pre>
 </div>
 </div>
