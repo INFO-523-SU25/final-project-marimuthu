@@ -4065,6 +4065,7 @@ vertical-align: -.125em;
   <li><a href="#dataset-1-youtube-trending-video-dataset-kaggle-india" id="toc-dataset-1-youtube-trending-video-dataset-kaggle-india" class="nav-link" data-scroll-target="#dataset-1-youtube-trending-video-dataset-kaggle-india">Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</a>
   <ul class="collapse">
   <li><a href="#source-and-provenance" id="toc-source-and-provenance" class="nav-link" data-scroll-target="#source-and-provenance">Source and Provenance</a></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access">Data Access</a></li>
   <li><a href="#description-of-observations" id="toc-description-of-observations" class="nav-link" data-scroll-target="#description-of-observations">Description of Observations</a></li>
   <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
   <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a></li>
@@ -4147,21 +4148,22 @@ vertical-align: -.125em;
 </div>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
-<div id="5d4d94c3" class="cell" data-execution_count="2">
+<div id="51290b60" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| message: false</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
 <span id="cb2-5"><a href="#cb2-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/IN_youtube_trending_data.csv&quot;</span>)</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.shape)</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.head())</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (251277, 16)
-===================================================================================
+==============================================================
 sample:
        video_id                                              title  \
 0  Iot0eF6EoNA  Sadak 2 | Official Trailer | Sanjay | Pooja | ...   
@@ -4204,7 +4206,8 @@ sample:
 2             False  CLASH official music video performed by DILJIT...  
 3             False  Gulshan Kumar and T-Series presents Bhushan Ku...  
 4             False  VYRL Originals brings to you ‘Baarish’ - the b...  
-===================================================================================
+==============================================================
+Info:
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 251277 entries, 0 to 251276
 Data columns (total 16 columns):
@@ -4227,9 +4230,7 @@ Data columns (total 16 columns):
  14  ratings_disabled   251277 non-null  bool  
  15  description        231822 non-null  object
 dtypes: bool(2), int64(5), object(9)
-memory usage: 27.3+ MB
-Info:
- None</code></pre>
+memory usage: 27.3+ MB</code></pre>
 </div>
 </div>
 </section>
@@ -4246,6 +4247,14 @@ Info:
 </li>
 <li><strong>How it was collected:</strong> Video metadata was scraped daily from YouTube’s trending page in India using YouTube API and stored as structured CSVs.</li>
 </ul>
+<hr>
+</section>
+<section id="data-access" class="level3">
+<h3 class="anchored" data-anchor-id="data-access">Data Access</h3>
+<p>The dataset used in this project, <code>IN_youtube_trending_data.csv</code>, exceeds GitHub’s file size limit (100MB) and is therefore not included in the repository.</p>
+<p>To access the dataset, please use the following Google Drive link:</p>
+<p><a href="https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link">Download IN_youtube_trending_data.csv</a></p>
+<p>After downloading, place the file in the data folder:</p>
 <hr>
 </section>
 <section id="description-of-observations" class="level3">
@@ -4340,21 +4349,22 @@ Info:
 <li>Relate findings back to your research question and practical implications for content creators</li>
 </ul>
 <p><strong>Note:</strong> The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</p>
-<div id="7edfa8b6" class="cell" data-execution_count="3">
+<div id="3036d043" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#| message: false</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
 <span id="cb4-5"><a href="#cb4-5"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/top-1000-trending-youtube-videos.csv&quot;</span>)</span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.shape)</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.head())</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>df2.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (1000, 7)
-===================================================================================
+==============================================================
 sample:
     rank                                              Video    Video views  \
 0     1  20 Tennis shots if they were not filmed, NOBOD...      3,471,237   
@@ -4369,7 +4379,8 @@ sample:
 2     293,563      NaN    Music       2024  
 3  44,861,602      NaN    Music       2015  
 4          38      NaN      NaN       2021  
-===================================================================================
+==============================================================
+Info:
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 1000 entries, 0 to 999
 Data columns (total 7 columns):
@@ -4383,9 +4394,7 @@ Data columns (total 7 columns):
  5   Category     820 non-null    object
  6   published    1000 non-null   int64 
 dtypes: int64(2), object(5)
-memory usage: 54.8+ KB
-Info:
- None</code></pre>
+memory usage: 54.8+ KB</code></pre>
 </div>
 </div>
 </section>
@@ -4477,21 +4486,22 @@ Info:
 <section id="role-in-final-project" class="level4">
 <h4 class="anchored" data-anchor-id="role-in-final-project">- Role in Final Project</h4>
 <p>This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.</p>
-<div id="f3b1248d" class="cell" data-execution_count="4">
+<div id="f9d06ab6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">#| label: load-dataset</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">#| message: false</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/youtube_api_sample.csv&quot;</span>)</span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.shape)</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.head())</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>df3.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>shape:
  (50, 9)
-===================================================================================
+==============================================================
 sample:
         videoId                                              title  \
 0  enjkcCdAlXc  Aavan Jaavan Song | WAR 2 | Hrithik Roshan, Ki...   
@@ -4513,7 +4523,8 @@ sample:
 2      67823          50.0  PT4H40M51S  
 3     136660        4896.0     PT3M57S  
 4       5735         424.0     PT1M57S  
-===================================================================================
+==============================================================
+Info:
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 50 entries, 0 to 49
 Data columns (total 9 columns):
@@ -4529,9 +4540,7 @@ Data columns (total 9 columns):
  7   commentCount  49 non-null     float64
  8   duration      50 non-null     object 
 dtypes: float64(1), int64(3), object(5)
-memory usage: 3.6+ KB
-Info:
- None</code></pre>
+memory usage: 3.6+ KB</code></pre>
 </div>
 </div>
 </section>
@@ -5220,319 +5229,334 @@ A Python script was used to query the YouTube Data API for the top 50 trending v
 <span id="cb8-40"><a href="#cb8-40"></a></span>
 <span id="cb8-41"><a href="#cb8-41"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/IN_youtube_trending_data.csv&quot;</span>)</span>
 <span id="cb8-42"><a href="#cb8-42"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.shape)</span>
-<span id="cb8-43"><a href="#cb8-43"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
+<span id="cb8-43"><a href="#cb8-43"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
 <span id="cb8-44"><a href="#cb8-44"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.head())</span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb8-46"><a href="#cb8-46"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df.info())</span>
-<span id="cb8-47"><a href="#cb8-47"></a><span class="in">```</span></span>
-<span id="cb8-48"><a href="#cb8-48"></a></span>
-<span id="cb8-49"><a href="#cb8-49"></a><span class="fu">## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</span></span>
-<span id="cb8-50"><a href="#cb8-50"></a></span>
-<span id="cb8-51"><a href="#cb8-51"></a><span class="fu">### Source and Provenance</span></span>
-<span id="cb8-52"><a href="#cb8-52"></a></span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">Kaggle – rsrishav/youtube-trending-video-dataset</span><span class="co">](https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset)</span>  </span>
-<span id="cb8-54"><a href="#cb8-54"></a><span class="ss">- </span>**Collected by:** Kaggle user <span class="co">[</span><span class="ot">@rsrishav</span><span class="co">](https://www.kaggle.com/rsrishav)</span>  </span>
-<span id="cb8-55"><a href="#cb8-55"></a><span class="ss">- </span>**Date Collected:** The dataset was last updated in 2023  </span>
-<span id="cb8-56"><a href="#cb8-56"></a><span class="ss">- </span>**How it was collected:** Video metadata was scraped daily from YouTube’s trending page in India using YouTube API and stored as structured CSVs.</span>
-<span id="cb8-57"><a href="#cb8-57"></a></span>
-<span id="cb8-58"><a href="#cb8-58"></a>---</span>
-<span id="cb8-59"><a href="#cb8-59"></a></span>
-<span id="cb8-60"><a href="#cb8-60"></a><span class="fu">### Description of Observations</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a></span>
-<span id="cb8-62"><a href="#cb8-62"></a>This file contains metadata for trending YouTube videos in **India**. Each row represents a video trending on a specific day. Videos that trend across multiple days appear multiple times in the dataset.</span>
-<span id="cb8-63"><a href="#cb8-63"></a></span>
-<span id="cb8-64"><a href="#cb8-64"></a>The dataset includes **approximately 251,000 rows and 15 columns**. Key variables include:</span>
-<span id="cb8-65"><a href="#cb8-65"></a></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="ss">- </span><span class="in">`title`</span> – video title  </span>
-<span id="cb8-67"><a href="#cb8-67"></a><span class="ss">- </span><span class="in">`channelTitle`</span> – channel name  </span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="ss">- </span><span class="in">`publishedAt`</span> – original video upload time  </span>
-<span id="cb8-69"><a href="#cb8-69"></a><span class="ss">- </span><span class="in">`view_count`</span>, <span class="in">`likes`</span>, <span class="in">`comment_count`</span> – performance metrics  </span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="ss">- </span><span class="in">`tags`</span>, <span class="in">`description`</span>, <span class="in">`categoryId`</span> – contextual info</span>
-<span id="cb8-71"><a href="#cb8-71"></a></span>
-<span id="cb8-72"><a href="#cb8-72"></a>This dataset supports both categorical and quantitative analysis. It’s suitable for time-based, text-based, and engagement-based exploration.</span>
-<span id="cb8-73"><a href="#cb8-73"></a></span>
-<span id="cb8-74"><a href="#cb8-74"></a>---</span>
-<span id="cb8-75"><a href="#cb8-75"></a></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="fu">### Ethical Considerations</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="ss">- </span>All metadata is collected from **publicly accessible video pages**</span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="ss">- </span>No private or personally identifiable user information (PII) is included</span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="ss">- </span>The data is shared under Kaggle’s open use policy for academic and non-commercial use</span>
-<span id="cb8-81"><a href="#cb8-81"></a></span>
-<span id="cb8-82"><a href="#cb8-82"></a>---</span>
-<span id="cb8-83"><a href="#cb8-83"></a></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="fu">### Research Question</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a></span>
-<span id="cb8-86"><a href="#cb8-86"></a>**1. What video characteristics (e.g., publish time, title structure, tags, category) are associated with higher engagement (views, likes, comments)?**</span>
-<span id="cb8-87"><a href="#cb8-87"></a></span>
-<span id="cb8-88"><a href="#cb8-88"></a>**2. Can we build a predictive model to identify whether a video will be high-performing based on its metadata?**</span>
-<span id="cb8-89"><a href="#cb8-89"></a></span>
-<span id="cb8-90"><a href="#cb8-90"></a>I will examine how the following video characteristics influence engagement metrics (views, likes, comments):</span>
-<span id="cb8-91"><a href="#cb8-91"></a></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="ss">- </span>**Publish timing** (hour and day of the week)</span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="ss">- </span>**Title length and patterns** (e.g., keyword use, clickbait phrases, presence of numbers)</span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="ss">- </span>**Video category** (<span class="in">`categoryId`</span>)</span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="ss">- </span>**Tags** (number of tags, presence of specific keywords)</span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb8-47"><a href="#cb8-47"></a>df.info()</span>
+<span id="cb8-48"><a href="#cb8-48"></a><span class="in">```</span></span>
+<span id="cb8-49"><a href="#cb8-49"></a></span>
+<span id="cb8-50"><a href="#cb8-50"></a><span class="fu">## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)</span></span>
+<span id="cb8-51"><a href="#cb8-51"></a></span>
+<span id="cb8-52"><a href="#cb8-52"></a><span class="fu">### Source and Provenance</span></span>
+<span id="cb8-53"><a href="#cb8-53"></a></span>
+<span id="cb8-54"><a href="#cb8-54"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">Kaggle – rsrishav/youtube-trending-video-dataset</span><span class="co">](https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset)</span>  </span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="ss">- </span>**Collected by:** Kaggle user <span class="co">[</span><span class="ot">@rsrishav</span><span class="co">](https://www.kaggle.com/rsrishav)</span>  </span>
+<span id="cb8-56"><a href="#cb8-56"></a><span class="ss">- </span>**Date Collected:** The dataset was last updated in 2023  </span>
+<span id="cb8-57"><a href="#cb8-57"></a><span class="ss">- </span>**How it was collected:** Video metadata was scraped daily from YouTube’s trending page in India using YouTube API and stored as structured CSVs.</span>
+<span id="cb8-58"><a href="#cb8-58"></a></span>
+<span id="cb8-59"><a href="#cb8-59"></a>---</span>
+<span id="cb8-60"><a href="#cb8-60"></a></span>
+<span id="cb8-61"><a href="#cb8-61"></a><span class="fu">### Data Access</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a></span>
+<span id="cb8-63"><a href="#cb8-63"></a>The dataset used in this project, <span class="in">`IN_youtube_trending_data.csv`</span>, exceeds GitHub’s file size limit (100MB) and is therefore not included in the repository.</span>
+<span id="cb8-64"><a href="#cb8-64"></a></span>
+<span id="cb8-65"><a href="#cb8-65"></a>To access the dataset, please use the following Google Drive link:</span>
+<span id="cb8-66"><a href="#cb8-66"></a></span>
+<span id="cb8-67"><a href="#cb8-67"></a><span class="co">[</span><span class="ot">Download IN_youtube_trending_data.csv</span><span class="co">](https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link)</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a></span>
+<span id="cb8-69"><a href="#cb8-69"></a>After downloading, place the file in the data folder:</span>
+<span id="cb8-70"><a href="#cb8-70"></a></span>
+<span id="cb8-71"><a href="#cb8-71"></a>---</span>
+<span id="cb8-72"><a href="#cb8-72"></a></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="fu">### Description of Observations</span></span>
+<span id="cb8-74"><a href="#cb8-74"></a></span>
+<span id="cb8-75"><a href="#cb8-75"></a>This file contains metadata for trending YouTube videos in **India**. Each row represents a video trending on a specific day. Videos that trend across multiple days appear multiple times in the dataset.</span>
+<span id="cb8-76"><a href="#cb8-76"></a></span>
+<span id="cb8-77"><a href="#cb8-77"></a>The dataset includes **approximately 251,000 rows and 15 columns**. Key variables include:</span>
+<span id="cb8-78"><a href="#cb8-78"></a></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="ss">- </span><span class="in">`title`</span> – video title  </span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="ss">- </span><span class="in">`channelTitle`</span> – channel name  </span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="ss">- </span><span class="in">`publishedAt`</span> – original video upload time  </span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="ss">- </span><span class="in">`view_count`</span>, <span class="in">`likes`</span>, <span class="in">`comment_count`</span> – performance metrics  </span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="ss">- </span><span class="in">`tags`</span>, <span class="in">`description`</span>, <span class="in">`categoryId`</span> – contextual info</span>
+<span id="cb8-84"><a href="#cb8-84"></a></span>
+<span id="cb8-85"><a href="#cb8-85"></a>This dataset supports both categorical and quantitative analysis. It’s suitable for time-based, text-based, and engagement-based exploration.</span>
+<span id="cb8-86"><a href="#cb8-86"></a></span>
+<span id="cb8-87"><a href="#cb8-87"></a>---</span>
+<span id="cb8-88"><a href="#cb8-88"></a></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="fu">### Ethical Considerations</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a></span>
+<span id="cb8-91"><a href="#cb8-91"></a><span class="ss">- </span>All metadata is collected from **publicly accessible video pages**</span>
+<span id="cb8-92"><a href="#cb8-92"></a><span class="ss">- </span>No private or personally identifiable user information (PII) is included</span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="ss">- </span>The data is shared under Kaggle’s open use policy for academic and non-commercial use</span>
+<span id="cb8-94"><a href="#cb8-94"></a></span>
+<span id="cb8-95"><a href="#cb8-95"></a>---</span>
 <span id="cb8-96"><a href="#cb8-96"></a></span>
-<span id="cb8-97"><a href="#cb8-97"></a>**Note:** The dataset does not include video duration or thumbnail image content. These may be considered in future work using the YouTube Data API.</span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="fu">### Research Question</span></span>
 <span id="cb8-98"><a href="#cb8-98"></a></span>
-<span id="cb8-99"><a href="#cb8-99"></a>influence performance metrics such as:</span>
-<span id="cb8-100"><a href="#cb8-100"></a><span class="ss">- </span><span class="in">`view_count`</span></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="ss">- </span><span class="in">`likes`</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="ss">- </span><span class="in">`comment_count`</span></span>
-<span id="cb8-103"><a href="#cb8-103"></a></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="fu">#### Why This Matters</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a></span>
-<span id="cb8-106"><a href="#cb8-106"></a>This question is relevant for both established creators and new channels aiming to optimize content strategy for discoverability and engagement.</span>
-<span id="cb8-107"><a href="#cb8-107"></a></span>
-<span id="cb8-108"><a href="#cb8-108"></a>---</span>
+<span id="cb8-99"><a href="#cb8-99"></a>**1. What video characteristics (e.g., publish time, title structure, tags, category) are associated with higher engagement (views, likes, comments)?**</span>
+<span id="cb8-100"><a href="#cb8-100"></a></span>
+<span id="cb8-101"><a href="#cb8-101"></a>**2. Can we build a predictive model to identify whether a video will be high-performing based on its metadata?**</span>
+<span id="cb8-102"><a href="#cb8-102"></a></span>
+<span id="cb8-103"><a href="#cb8-103"></a>I will examine how the following video characteristics influence engagement metrics (views, likes, comments):</span>
+<span id="cb8-104"><a href="#cb8-104"></a></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="ss">- </span>**Publish timing** (hour and day of the week)</span>
+<span id="cb8-106"><a href="#cb8-106"></a><span class="ss">- </span>**Title length and patterns** (e.g., keyword use, clickbait phrases, presence of numbers)</span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="ss">- </span>**Video category** (<span class="in">`categoryId`</span>)</span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="ss">- </span>**Tags** (number of tags, presence of specific keywords)</span>
 <span id="cb8-109"><a href="#cb8-109"></a></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="fu">### Analysis Plan</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a>**Note:** The dataset does not include video duration or thumbnail image content. These may be considered in future work using the YouTube Data API.</span>
 <span id="cb8-111"><a href="#cb8-111"></a></span>
-<span id="cb8-112"><a href="#cb8-112"></a>To answer the research question, I will:</span>
-<span id="cb8-113"><a href="#cb8-113"></a></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="fu">#### - Preprocess the data:</span></span>
-<span id="cb8-115"><a href="#cb8-115"></a><span class="ss">- </span>Convert <span class="in">`publishedAt`</span> to <span class="in">`datetime`</span> format</span>
-<span id="cb8-116"><a href="#cb8-116"></a><span class="ss">- </span>Extract features such as <span class="in">`hour`</span>, <span class="in">`weekday`</span>, and create <span class="in">`daypart`</span> buckets (morning/afternoon/evening)</span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="ss">- </span>Handle duplicate trending entries by keeping the first appearance or aggregating views/likes</span>
+<span id="cb8-112"><a href="#cb8-112"></a>influence performance metrics such as:</span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="ss">- </span><span class="in">`view_count`</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="ss">- </span><span class="in">`likes`</span></span>
+<span id="cb8-115"><a href="#cb8-115"></a><span class="ss">- </span><span class="in">`comment_count`</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a></span>
+<span id="cb8-117"><a href="#cb8-117"></a><span class="fu">#### Why This Matters</span></span>
 <span id="cb8-118"><a href="#cb8-118"></a></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="fu">#### - Create new variables:</span></span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="ss">- </span><span class="in">`title_length`</span>: total number of characters in the video title</span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="ss">- </span><span class="in">`has_numbers_in_title`</span>: binary indicator for numbers in title (e.g., “Top 5”, “2023”)</span>
-<span id="cb8-122"><a href="#cb8-122"></a><span class="ss">- </span><span class="in">`upload_hour_bucket`</span>: categorical variable (e.g., morning, afternoon, evening)</span>
-<span id="cb8-123"><a href="#cb8-123"></a><span class="ss">- </span><span class="in">`tag_count`</span>: number of tags used</span>
+<span id="cb8-119"><a href="#cb8-119"></a>This question is relevant for both established creators and new channels aiming to optimize content strategy for discoverability and engagement.</span>
+<span id="cb8-120"><a href="#cb8-120"></a></span>
+<span id="cb8-121"><a href="#cb8-121"></a>---</span>
+<span id="cb8-122"><a href="#cb8-122"></a></span>
+<span id="cb8-123"><a href="#cb8-123"></a><span class="fu">### Analysis Plan</span></span>
 <span id="cb8-124"><a href="#cb8-124"></a></span>
-<span id="cb8-125"><a href="#cb8-125"></a><span class="fu">#### - Explore patterns:</span></span>
-<span id="cb8-126"><a href="#cb8-126"></a><span class="ss">- </span>Group by <span class="in">`categoryId`</span>, <span class="in">`upload_hour_bucket`</span>, and <span class="in">`title_length`</span> to visualize how engagement (views/likes/comments) varies</span>
-<span id="cb8-127"><a href="#cb8-127"></a><span class="ss">- </span>Use bar plots, boxplots, and heatmaps to show relationships</span>
-<span id="cb8-128"><a href="#cb8-128"></a></span>
-<span id="cb8-129"><a href="#cb8-129"></a><span class="fu">#### - Build a predictive model:</span></span>
-<span id="cb8-130"><a href="#cb8-130"></a><span class="ss">- </span>Define the target variable:</span>
-<span id="cb8-131"><a href="#cb8-131"></a><span class="ss">  - </span><span class="in">`high_performer`</span>: binary variable = 1 if video is in the top 25% by view count, else 0</span>
-<span id="cb8-132"><a href="#cb8-132"></a><span class="ss">- </span>Use supervised learning models (e.g., logistic regression, decision tree, or random forest)</span>
-<span id="cb8-133"><a href="#cb8-133"></a><span class="ss">- </span>Train/test split and evaluate model using accuracy, precision, recall, and ROC-AUC</span>
-<span id="cb8-134"><a href="#cb8-134"></a><span class="ss">- </span>Identify the most important features contributing to video performance</span>
-<span id="cb8-135"><a href="#cb8-135"></a></span>
-<span id="cb8-136"><a href="#cb8-136"></a><span class="fu">#### - Interpret results:</span></span>
-<span id="cb8-137"><a href="#cb8-137"></a><span class="ss">- </span>Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success</span>
-<span id="cb8-138"><a href="#cb8-138"></a><span class="ss">- </span>Relate findings back to your research question and practical implications for content creators</span>
-<span id="cb8-139"><a href="#cb8-139"></a></span>
-<span id="cb8-140"><a href="#cb8-140"></a>**Note:** The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</span>
+<span id="cb8-125"><a href="#cb8-125"></a>To answer the research question, I will:</span>
+<span id="cb8-126"><a href="#cb8-126"></a></span>
+<span id="cb8-127"><a href="#cb8-127"></a><span class="fu">#### - Preprocess the data:</span></span>
+<span id="cb8-128"><a href="#cb8-128"></a><span class="ss">- </span>Convert <span class="in">`publishedAt`</span> to <span class="in">`datetime`</span> format</span>
+<span id="cb8-129"><a href="#cb8-129"></a><span class="ss">- </span>Extract features such as <span class="in">`hour`</span>, <span class="in">`weekday`</span>, and create <span class="in">`daypart`</span> buckets (morning/afternoon/evening)</span>
+<span id="cb8-130"><a href="#cb8-130"></a><span class="ss">- </span>Handle duplicate trending entries by keeping the first appearance or aggregating views/likes</span>
+<span id="cb8-131"><a href="#cb8-131"></a></span>
+<span id="cb8-132"><a href="#cb8-132"></a><span class="fu">#### - Create new variables:</span></span>
+<span id="cb8-133"><a href="#cb8-133"></a><span class="ss">- </span><span class="in">`title_length`</span>: total number of characters in the video title</span>
+<span id="cb8-134"><a href="#cb8-134"></a><span class="ss">- </span><span class="in">`has_numbers_in_title`</span>: binary indicator for numbers in title (e.g., “Top 5”, “2023”)</span>
+<span id="cb8-135"><a href="#cb8-135"></a><span class="ss">- </span><span class="in">`upload_hour_bucket`</span>: categorical variable (e.g., morning, afternoon, evening)</span>
+<span id="cb8-136"><a href="#cb8-136"></a><span class="ss">- </span><span class="in">`tag_count`</span>: number of tags used</span>
+<span id="cb8-137"><a href="#cb8-137"></a></span>
+<span id="cb8-138"><a href="#cb8-138"></a><span class="fu">#### - Explore patterns:</span></span>
+<span id="cb8-139"><a href="#cb8-139"></a><span class="ss">- </span>Group by <span class="in">`categoryId`</span>, <span class="in">`upload_hour_bucket`</span>, and <span class="in">`title_length`</span> to visualize how engagement (views/likes/comments) varies</span>
+<span id="cb8-140"><a href="#cb8-140"></a><span class="ss">- </span>Use bar plots, boxplots, and heatmaps to show relationships</span>
 <span id="cb8-141"><a href="#cb8-141"></a></span>
-<span id="cb8-142"><a href="#cb8-142"></a></span>
-<span id="cb8-143"><a href="#cb8-143"></a></span>
-<span id="cb8-144"><a href="#cb8-144"></a></span>
-<span id="cb8-147"><a href="#cb8-147"></a><span class="in">```{python}</span></span>
-<span id="cb8-148"><a href="#cb8-148"></a><span class="co">## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)</span></span>
-<span id="cb8-149"><a href="#cb8-149"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb8-150"><a href="#cb8-150"></a><span class="co">#| message: false</span></span>
-<span id="cb8-151"><a href="#cb8-151"></a></span>
-<span id="cb8-152"><a href="#cb8-152"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/top-1000-trending-youtube-videos.csv&quot;</span>)</span>
-<span id="cb8-153"><a href="#cb8-153"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.shape)</span>
-<span id="cb8-154"><a href="#cb8-154"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb8-155"><a href="#cb8-155"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.head())</span>
-<span id="cb8-156"><a href="#cb8-156"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb8-157"><a href="#cb8-157"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.info())</span>
-<span id="cb8-158"><a href="#cb8-158"></a><span class="in">```</span></span>
-<span id="cb8-159"><a href="#cb8-159"></a></span>
-<span id="cb8-160"><a href="#cb8-160"></a><span class="fu">## Dataset 2: Top 1000 Trending YouTube Videos (Kaggle)</span></span>
-<span id="cb8-161"><a href="#cb8-161"></a></span>
-<span id="cb8-162"><a href="#cb8-162"></a><span class="fu">### Source and Provenance</span></span>
-<span id="cb8-163"><a href="#cb8-163"></a></span>
-<span id="cb8-164"><a href="#cb8-164"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">Kaggle – 1000 Most Trending YouTube Videos</span><span class="co">](https://www.kaggle.com/datasets/samithsachidanandan/1000-most-trending-youtube-videos)</span>  </span>
-<span id="cb8-165"><a href="#cb8-165"></a><span class="ss">- </span>**Collected by:** Samith Sachidanandan  </span>
-<span id="cb8-166"><a href="#cb8-166"></a><span class="ss">- </span>**Date Collected:** Not specified; likely compiled as a snapshot of all-time trending videos  </span>
-<span id="cb8-167"><a href="#cb8-167"></a><span class="ss">- </span>**How it was collected:** Curated list of the most viewed and liked YouTube videos, possibly scraped from YouTube’s top charts. The dataset includes basic metadata and performance metrics.</span>
-<span id="cb8-168"><a href="#cb8-168"></a></span>
-<span id="cb8-169"><a href="#cb8-169"></a>---</span>
-<span id="cb8-170"><a href="#cb8-170"></a></span>
-<span id="cb8-171"><a href="#cb8-171"></a><span class="fu">### Description of Observations</span></span>
-<span id="cb8-172"><a href="#cb8-172"></a></span>
-<span id="cb8-173"><a href="#cb8-173"></a>This dataset contains **1,000 records**, each representing a globally popular YouTube video. It includes the following columns:</span>
-<span id="cb8-174"><a href="#cb8-174"></a></span>
-<span id="cb8-175"><a href="#cb8-175"></a><span class="ss">- </span><span class="in">`rank`</span>: position in the top 1000  </span>
-<span id="cb8-176"><a href="#cb8-176"></a><span class="ss">- </span><span class="in">`Video`</span>: title of the video  </span>
-<span id="cb8-177"><a href="#cb8-177"></a><span class="ss">- </span><span class="in">`Video views`</span>: number of views  </span>
-<span id="cb8-178"><a href="#cb8-178"></a><span class="ss">- </span><span class="in">`Likes`</span>: number of likes  </span>
-<span id="cb8-179"><a href="#cb8-179"></a><span class="ss">- </span><span class="in">`Dislikes`</span>: number of dislikes  </span>
-<span id="cb8-180"><a href="#cb8-180"></a><span class="ss">- </span><span class="in">`Category`</span>: general topic (e.g., Music, Sports)  </span>
-<span id="cb8-181"><a href="#cb8-181"></a><span class="ss">- </span><span class="in">`published`</span>: year the video was published</span>
+<span id="cb8-142"><a href="#cb8-142"></a><span class="fu">#### - Build a predictive model:</span></span>
+<span id="cb8-143"><a href="#cb8-143"></a><span class="ss">- </span>Define the target variable:</span>
+<span id="cb8-144"><a href="#cb8-144"></a><span class="ss">  - </span><span class="in">`high_performer`</span>: binary variable = 1 if video is in the top 25% by view count, else 0</span>
+<span id="cb8-145"><a href="#cb8-145"></a><span class="ss">- </span>Use supervised learning models (e.g., logistic regression, decision tree, or random forest)</span>
+<span id="cb8-146"><a href="#cb8-146"></a><span class="ss">- </span>Train/test split and evaluate model using accuracy, precision, recall, and ROC-AUC</span>
+<span id="cb8-147"><a href="#cb8-147"></a><span class="ss">- </span>Identify the most important features contributing to video performance</span>
+<span id="cb8-148"><a href="#cb8-148"></a></span>
+<span id="cb8-149"><a href="#cb8-149"></a><span class="fu">#### - Interpret results:</span></span>
+<span id="cb8-150"><a href="#cb8-150"></a><span class="ss">- </span>Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success</span>
+<span id="cb8-151"><a href="#cb8-151"></a><span class="ss">- </span>Relate findings back to your research question and practical implications for content creators</span>
+<span id="cb8-152"><a href="#cb8-152"></a></span>
+<span id="cb8-153"><a href="#cb8-153"></a>**Note:** The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.</span>
+<span id="cb8-154"><a href="#cb8-154"></a></span>
+<span id="cb8-155"><a href="#cb8-155"></a></span>
+<span id="cb8-156"><a href="#cb8-156"></a></span>
+<span id="cb8-157"><a href="#cb8-157"></a></span>
+<span id="cb8-160"><a href="#cb8-160"></a><span class="in">```{python}</span></span>
+<span id="cb8-161"><a href="#cb8-161"></a><span class="co">## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)</span></span>
+<span id="cb8-162"><a href="#cb8-162"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb8-163"><a href="#cb8-163"></a><span class="co">#| message: false</span></span>
+<span id="cb8-164"><a href="#cb8-164"></a></span>
+<span id="cb8-165"><a href="#cb8-165"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/top-1000-trending-youtube-videos.csv&quot;</span>)</span>
+<span id="cb8-166"><a href="#cb8-166"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.shape)</span>
+<span id="cb8-167"><a href="#cb8-167"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb8-168"><a href="#cb8-168"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df2.head())</span>
+<span id="cb8-169"><a href="#cb8-169"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb8-170"><a href="#cb8-170"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb8-171"><a href="#cb8-171"></a>df2.info()</span>
+<span id="cb8-172"><a href="#cb8-172"></a><span class="in">```</span></span>
+<span id="cb8-173"><a href="#cb8-173"></a></span>
+<span id="cb8-174"><a href="#cb8-174"></a><span class="fu">## Dataset 2: Top 1000 Trending YouTube Videos (Kaggle)</span></span>
+<span id="cb8-175"><a href="#cb8-175"></a></span>
+<span id="cb8-176"><a href="#cb8-176"></a><span class="fu">### Source and Provenance</span></span>
+<span id="cb8-177"><a href="#cb8-177"></a></span>
+<span id="cb8-178"><a href="#cb8-178"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">Kaggle – 1000 Most Trending YouTube Videos</span><span class="co">](https://www.kaggle.com/datasets/samithsachidanandan/1000-most-trending-youtube-videos)</span>  </span>
+<span id="cb8-179"><a href="#cb8-179"></a><span class="ss">- </span>**Collected by:** Samith Sachidanandan  </span>
+<span id="cb8-180"><a href="#cb8-180"></a><span class="ss">- </span>**Date Collected:** Not specified; likely compiled as a snapshot of all-time trending videos  </span>
+<span id="cb8-181"><a href="#cb8-181"></a><span class="ss">- </span>**How it was collected:** Curated list of the most viewed and liked YouTube videos, possibly scraped from YouTube’s top charts. The dataset includes basic metadata and performance metrics.</span>
 <span id="cb8-182"><a href="#cb8-182"></a></span>
-<span id="cb8-183"><a href="#cb8-183"></a>Although compact, this dataset captures extremely successful videos and is useful for identifying characteristics shared by top performers across different time periods and content types.</span>
+<span id="cb8-183"><a href="#cb8-183"></a>---</span>
 <span id="cb8-184"><a href="#cb8-184"></a></span>
-<span id="cb8-185"><a href="#cb8-185"></a>---</span>
+<span id="cb8-185"><a href="#cb8-185"></a><span class="fu">### Description of Observations</span></span>
 <span id="cb8-186"><a href="#cb8-186"></a></span>
-<span id="cb8-187"><a href="#cb8-187"></a><span class="fu">### Ethical Considerations</span></span>
+<span id="cb8-187"><a href="#cb8-187"></a>This dataset contains **1,000 records**, each representing a globally popular YouTube video. It includes the following columns:</span>
 <span id="cb8-188"><a href="#cb8-188"></a></span>
-<span id="cb8-189"><a href="#cb8-189"></a><span class="ss">- </span>The dataset contains only **publicly available metadata** from YouTube  </span>
-<span id="cb8-190"><a href="#cb8-190"></a><span class="ss">- </span>No personal or user-level data is included  </span>
-<span id="cb8-191"><a href="#cb8-191"></a><span class="ss">- </span>It is shared under Kaggle’s community license for academic and non-commercial use</span>
-<span id="cb8-192"><a href="#cb8-192"></a></span>
-<span id="cb8-193"><a href="#cb8-193"></a>---</span>
-<span id="cb8-194"><a href="#cb8-194"></a></span>
-<span id="cb8-195"><a href="#cb8-195"></a><span class="fu">### Research Question</span></span>
+<span id="cb8-189"><a href="#cb8-189"></a><span class="ss">- </span><span class="in">`rank`</span>: position in the top 1000  </span>
+<span id="cb8-190"><a href="#cb8-190"></a><span class="ss">- </span><span class="in">`Video`</span>: title of the video  </span>
+<span id="cb8-191"><a href="#cb8-191"></a><span class="ss">- </span><span class="in">`Video views`</span>: number of views  </span>
+<span id="cb8-192"><a href="#cb8-192"></a><span class="ss">- </span><span class="in">`Likes`</span>: number of likes  </span>
+<span id="cb8-193"><a href="#cb8-193"></a><span class="ss">- </span><span class="in">`Dislikes`</span>: number of dislikes  </span>
+<span id="cb8-194"><a href="#cb8-194"></a><span class="ss">- </span><span class="in">`Category`</span>: general topic (e.g., Music, Sports)  </span>
+<span id="cb8-195"><a href="#cb8-195"></a><span class="ss">- </span><span class="in">`published`</span>: year the video was published</span>
 <span id="cb8-196"><a href="#cb8-196"></a></span>
-<span id="cb8-197"><a href="#cb8-197"></a>**What common characteristics do top-performing YouTube videos share across categories and publishing years?**</span>
+<span id="cb8-197"><a href="#cb8-197"></a>Although compact, this dataset captures extremely successful videos and is useful for identifying characteristics shared by top performers across different time periods and content types.</span>
 <span id="cb8-198"><a href="#cb8-198"></a></span>
-<span id="cb8-199"><a href="#cb8-199"></a>This dataset will help explore whether video success correlates with:</span>
-<span id="cb8-200"><a href="#cb8-200"></a><span class="ss">- </span>Category (e.g., Music vs. Gaming)</span>
-<span id="cb8-201"><a href="#cb8-201"></a><span class="ss">- </span>Year of publication (older vs. newer content)</span>
-<span id="cb8-202"><a href="#cb8-202"></a><span class="ss">- </span>View-to-like ratios or audience engagement patterns</span>
-<span id="cb8-203"><a href="#cb8-203"></a></span>
-<span id="cb8-204"><a href="#cb8-204"></a><span class="fu">#### Why This Matters:</span></span>
-<span id="cb8-205"><a href="#cb8-205"></a>This dataset provides a snapshot of **top-tier performers**, helping validate whether trends found in the larger India-specific dataset (Dataset 1) hold true at the global, all-time level.</span>
+<span id="cb8-199"><a href="#cb8-199"></a>---</span>
+<span id="cb8-200"><a href="#cb8-200"></a></span>
+<span id="cb8-201"><a href="#cb8-201"></a><span class="fu">### Ethical Considerations</span></span>
+<span id="cb8-202"><a href="#cb8-202"></a></span>
+<span id="cb8-203"><a href="#cb8-203"></a><span class="ss">- </span>The dataset contains only **publicly available metadata** from YouTube  </span>
+<span id="cb8-204"><a href="#cb8-204"></a><span class="ss">- </span>No personal or user-level data is included  </span>
+<span id="cb8-205"><a href="#cb8-205"></a><span class="ss">- </span>It is shared under Kaggle’s community license for academic and non-commercial use</span>
 <span id="cb8-206"><a href="#cb8-206"></a></span>
 <span id="cb8-207"><a href="#cb8-207"></a>---</span>
 <span id="cb8-208"><a href="#cb8-208"></a></span>
-<span id="cb8-209"><a href="#cb8-209"></a><span class="fu">### Variables to Explore</span></span>
+<span id="cb8-209"><a href="#cb8-209"></a><span class="fu">### Research Question</span></span>
 <span id="cb8-210"><a href="#cb8-210"></a></span>
-<span id="cb8-211"><a href="#cb8-211"></a><span class="ss">- </span>**Quantitative:** <span class="in">`Video views`</span>, <span class="in">`Likes`</span>, <span class="in">`Dislikes`</span>  </span>
-<span id="cb8-212"><a href="#cb8-212"></a><span class="ss">- </span>**Categorical:** <span class="in">`Category`</span>, <span class="in">`published`</span> (as a proxy for video age)</span>
-<span id="cb8-213"><a href="#cb8-213"></a></span>
-<span id="cb8-214"><a href="#cb8-214"></a>---</span>
-<span id="cb8-215"><a href="#cb8-215"></a></span>
-<span id="cb8-216"><a href="#cb8-216"></a><span class="fu">### Analysis Plan</span></span>
-<span id="cb8-217"><a href="#cb8-217"></a>Convert Video views, Likes, and Dislikes to numeric format (they may be strings with commas)</span>
-<span id="cb8-218"><a href="#cb8-218"></a></span>
-<span id="cb8-219"><a href="#cb8-219"></a><span class="fu">#### - Create new derived variables:</span></span>
+<span id="cb8-211"><a href="#cb8-211"></a>**What common characteristics do top-performing YouTube videos share across categories and publishing years?**</span>
+<span id="cb8-212"><a href="#cb8-212"></a></span>
+<span id="cb8-213"><a href="#cb8-213"></a>This dataset will help explore whether video success correlates with:</span>
+<span id="cb8-214"><a href="#cb8-214"></a><span class="ss">- </span>Category (e.g., Music vs. Gaming)</span>
+<span id="cb8-215"><a href="#cb8-215"></a><span class="ss">- </span>Year of publication (older vs. newer content)</span>
+<span id="cb8-216"><a href="#cb8-216"></a><span class="ss">- </span>View-to-like ratios or audience engagement patterns</span>
+<span id="cb8-217"><a href="#cb8-217"></a></span>
+<span id="cb8-218"><a href="#cb8-218"></a><span class="fu">#### Why This Matters:</span></span>
+<span id="cb8-219"><a href="#cb8-219"></a>This dataset provides a snapshot of **top-tier performers**, helping validate whether trends found in the larger India-specific dataset (Dataset 1) hold true at the global, all-time level.</span>
 <span id="cb8-220"><a href="#cb8-220"></a></span>
-<span id="cb8-221"><a href="#cb8-221"></a><span class="ss">- </span>like_ratio = Likes / Video views</span>
+<span id="cb8-221"><a href="#cb8-221"></a>---</span>
 <span id="cb8-222"><a href="#cb8-222"></a></span>
-<span id="cb8-223"><a href="#cb8-223"></a><span class="ss">- </span>engagement_score = (Likes + Dislikes) / Video views</span>
+<span id="cb8-223"><a href="#cb8-223"></a><span class="fu">### Variables to Explore</span></span>
 <span id="cb8-224"><a href="#cb8-224"></a></span>
-<span id="cb8-225"><a href="#cb8-225"></a><span class="fu">#### - Analyze view counts and like ratios by Category and published year</span></span>
-<span id="cb8-226"><a href="#cb8-226"></a></span>
-<span id="cb8-227"><a href="#cb8-227"></a><span class="ss">- </span>Visualize trends in engagement over time and across categories</span>
-<span id="cb8-228"><a href="#cb8-228"></a></span>
-<span id="cb8-229"><a href="#cb8-229"></a><span class="ss">- </span>Compare the findings with those from Dataset 1 to see if the characteristics of top-trending videos align with broader trending patterns</span>
-<span id="cb8-230"><a href="#cb8-230"></a></span>
-<span id="cb8-231"><a href="#cb8-231"></a><span class="fu">#### - Role in Final Project</span></span>
-<span id="cb8-232"><a href="#cb8-232"></a>This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.</span>
-<span id="cb8-233"><a href="#cb8-233"></a></span>
+<span id="cb8-225"><a href="#cb8-225"></a><span class="ss">- </span>**Quantitative:** <span class="in">`Video views`</span>, <span class="in">`Likes`</span>, <span class="in">`Dislikes`</span>  </span>
+<span id="cb8-226"><a href="#cb8-226"></a><span class="ss">- </span>**Categorical:** <span class="in">`Category`</span>, <span class="in">`published`</span> (as a proxy for video age)</span>
+<span id="cb8-227"><a href="#cb8-227"></a></span>
+<span id="cb8-228"><a href="#cb8-228"></a>---</span>
+<span id="cb8-229"><a href="#cb8-229"></a></span>
+<span id="cb8-230"><a href="#cb8-230"></a><span class="fu">### Analysis Plan</span></span>
+<span id="cb8-231"><a href="#cb8-231"></a>Convert Video views, Likes, and Dislikes to numeric format (they may be strings with commas)</span>
+<span id="cb8-232"><a href="#cb8-232"></a></span>
+<span id="cb8-233"><a href="#cb8-233"></a><span class="fu">#### - Create new derived variables:</span></span>
 <span id="cb8-234"><a href="#cb8-234"></a></span>
-<span id="cb8-237"><a href="#cb8-237"></a><span class="in">```{python}</span></span>
-<span id="cb8-238"><a href="#cb8-238"></a><span class="co">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
-<span id="cb8-239"><a href="#cb8-239"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb8-240"><a href="#cb8-240"></a><span class="co">#| message: false</span></span>
-<span id="cb8-241"><a href="#cb8-241"></a></span>
-<span id="cb8-242"><a href="#cb8-242"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/youtube_api_sample.csv&quot;</span>)</span>
-<span id="cb8-243"><a href="#cb8-243"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.shape)</span>
-<span id="cb8-244"><a href="#cb8-244"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb8-245"><a href="#cb8-245"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.head())</span>
-<span id="cb8-246"><a href="#cb8-246"></a><span class="bu">print</span>(<span class="st">&quot;===================================================================================&quot;</span>)</span>
-<span id="cb8-247"><a href="#cb8-247"></a><span class="bu">print</span>(<span class="st">&quot;Info:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.info())</span>
-<span id="cb8-248"><a href="#cb8-248"></a><span class="in">```</span></span>
-<span id="cb8-249"><a href="#cb8-249"></a><span class="fu">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
-<span id="cb8-250"><a href="#cb8-250"></a></span>
-<span id="cb8-251"><a href="#cb8-251"></a><span class="fu">### Source and Provenance</span></span>
-<span id="cb8-252"><a href="#cb8-252"></a></span>
-<span id="cb8-253"><a href="#cb8-253"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">YouTube Data API v3 – Google Developer Platform</span><span class="co">](https://developers.google.com/youtube/v3)</span>  </span>
-<span id="cb8-254"><a href="#cb8-254"></a><span class="ss">- </span>**Collected by:** Custom script using Google’s official API  </span>
-<span id="cb8-255"><a href="#cb8-255"></a><span class="ss">- </span>**Date Collected:** 08/01/2025 </span>
-<span id="cb8-256"><a href="#cb8-256"></a><span class="ss">- </span>**How it was collected:**  </span>
-<span id="cb8-257"><a href="#cb8-257"></a>  A Python script was used to query the YouTube Data API for the top 50 trending videos in India (<span class="in">`regionCode=&quot;IN&quot;`</span>) using the <span class="in">`videos().list()`</span> endpoint with <span class="in">`chart=&quot;mostPopular&quot;`</span>.</span>
-<span id="cb8-258"><a href="#cb8-258"></a></span>
-<span id="cb8-259"><a href="#cb8-259"></a>---</span>
-<span id="cb8-260"><a href="#cb8-260"></a></span>
-<span id="cb8-261"><a href="#cb8-261"></a><span class="fu">### Description of Observations</span></span>
-<span id="cb8-262"><a href="#cb8-262"></a></span>
-<span id="cb8-263"><a href="#cb8-263"></a>The dataset contains metadata for **50 currently trending videos in India**, including:</span>
-<span id="cb8-264"><a href="#cb8-264"></a></span>
-<span id="cb8-265"><a href="#cb8-265"></a><span class="ss">- </span><span class="in">`videoId`</span>, <span class="in">`title`</span>, <span class="in">`channelTitle`</span>, <span class="in">`categoryId`</span>  </span>
-<span id="cb8-266"><a href="#cb8-266"></a><span class="ss">- </span><span class="in">`publishedAt`</span>, <span class="in">`viewCount`</span>, <span class="in">`likeCount`</span>, <span class="in">`commentCount`</span>  </span>
-<span id="cb8-267"><a href="#cb8-267"></a><span class="ss">- </span><span class="in">`duration`</span></span>
-<span id="cb8-268"><a href="#cb8-268"></a></span>
-<span id="cb8-269"><a href="#cb8-269"></a>This data was saved locally as <span class="in">`youtube_api_top50_IN.csv`</span> and is included in the <span class="in">`/data`</span> folder. This file reflects a real-time snapshot and complements the static, historical datasets used in the project.</span>
-<span id="cb8-270"><a href="#cb8-270"></a></span>
-<span id="cb8-271"><a href="#cb8-271"></a></span>
-<span id="cb8-272"><a href="#cb8-272"></a>---</span>
+<span id="cb8-235"><a href="#cb8-235"></a><span class="ss">- </span>like_ratio = Likes / Video views</span>
+<span id="cb8-236"><a href="#cb8-236"></a></span>
+<span id="cb8-237"><a href="#cb8-237"></a><span class="ss">- </span>engagement_score = (Likes + Dislikes) / Video views</span>
+<span id="cb8-238"><a href="#cb8-238"></a></span>
+<span id="cb8-239"><a href="#cb8-239"></a><span class="fu">#### - Analyze view counts and like ratios by Category and published year</span></span>
+<span id="cb8-240"><a href="#cb8-240"></a></span>
+<span id="cb8-241"><a href="#cb8-241"></a><span class="ss">- </span>Visualize trends in engagement over time and across categories</span>
+<span id="cb8-242"><a href="#cb8-242"></a></span>
+<span id="cb8-243"><a href="#cb8-243"></a><span class="ss">- </span>Compare the findings with those from Dataset 1 to see if the characteristics of top-trending videos align with broader trending patterns</span>
+<span id="cb8-244"><a href="#cb8-244"></a></span>
+<span id="cb8-245"><a href="#cb8-245"></a><span class="fu">#### - Role in Final Project</span></span>
+<span id="cb8-246"><a href="#cb8-246"></a>This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.</span>
+<span id="cb8-247"><a href="#cb8-247"></a></span>
+<span id="cb8-248"><a href="#cb8-248"></a></span>
+<span id="cb8-251"><a href="#cb8-251"></a><span class="in">```{python}</span></span>
+<span id="cb8-252"><a href="#cb8-252"></a><span class="co">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
+<span id="cb8-253"><a href="#cb8-253"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb8-254"><a href="#cb8-254"></a><span class="co">#| message: false</span></span>
+<span id="cb8-255"><a href="#cb8-255"></a></span>
+<span id="cb8-256"><a href="#cb8-256"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/youtube_api_sample.csv&quot;</span>)</span>
+<span id="cb8-257"><a href="#cb8-257"></a><span class="bu">print</span>(<span class="st">&quot;shape:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.shape)</span>
+<span id="cb8-258"><a href="#cb8-258"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb8-259"><a href="#cb8-259"></a><span class="bu">print</span>(<span class="st">&quot;sample:</span><span class="ch">\n</span><span class="st">&quot;</span>,df3.head())</span>
+<span id="cb8-260"><a href="#cb8-260"></a><span class="bu">print</span>(<span class="st">&quot;==============================================================&quot;</span>)</span>
+<span id="cb8-261"><a href="#cb8-261"></a><span class="bu">print</span>(<span class="st">&quot;Info:&quot;</span>)</span>
+<span id="cb8-262"><a href="#cb8-262"></a>df3.info()</span>
+<span id="cb8-263"><a href="#cb8-263"></a><span class="in">```</span></span>
+<span id="cb8-264"><a href="#cb8-264"></a><span class="fu">## Dataset 3: YouTube Trending Videos via API (India)</span></span>
+<span id="cb8-265"><a href="#cb8-265"></a></span>
+<span id="cb8-266"><a href="#cb8-266"></a><span class="fu">### Source and Provenance</span></span>
+<span id="cb8-267"><a href="#cb8-267"></a></span>
+<span id="cb8-268"><a href="#cb8-268"></a><span class="ss">- </span>**Source:** <span class="co">[</span><span class="ot">YouTube Data API v3 – Google Developer Platform</span><span class="co">](https://developers.google.com/youtube/v3)</span>  </span>
+<span id="cb8-269"><a href="#cb8-269"></a><span class="ss">- </span>**Collected by:** Custom script using Google’s official API  </span>
+<span id="cb8-270"><a href="#cb8-270"></a><span class="ss">- </span>**Date Collected:** 08/01/2025 </span>
+<span id="cb8-271"><a href="#cb8-271"></a><span class="ss">- </span>**How it was collected:**  </span>
+<span id="cb8-272"><a href="#cb8-272"></a>  A Python script was used to query the YouTube Data API for the top 50 trending videos in India (<span class="in">`regionCode=&quot;IN&quot;`</span>) using the <span class="in">`videos().list()`</span> endpoint with <span class="in">`chart=&quot;mostPopular&quot;`</span>.</span>
 <span id="cb8-273"><a href="#cb8-273"></a></span>
-<span id="cb8-274"><a href="#cb8-274"></a><span class="fu">### Ethical Considerations</span></span>
+<span id="cb8-274"><a href="#cb8-274"></a>---</span>
 <span id="cb8-275"><a href="#cb8-275"></a></span>
-<span id="cb8-276"><a href="#cb8-276"></a><span class="ss">- </span>Data is collected via the **official YouTube Data API v3**, in accordance with Google’s <span class="co">[</span><span class="ot">API Terms of Service</span><span class="co">](https://developers.google.com/youtube/terms/api-services-terms-of-service)</span>  </span>
-<span id="cb8-277"><a href="#cb8-277"></a><span class="ss">- </span>Only **public metadata** is accessed; no user-level or private data is collected  </span>
-<span id="cb8-278"><a href="#cb8-278"></a><span class="ss">- </span>The API is used for read-only academic and exploratory purposes</span>
+<span id="cb8-276"><a href="#cb8-276"></a><span class="fu">### Description of Observations</span></span>
+<span id="cb8-277"><a href="#cb8-277"></a></span>
+<span id="cb8-278"><a href="#cb8-278"></a>The dataset contains metadata for **50 currently trending videos in India**, including:</span>
 <span id="cb8-279"><a href="#cb8-279"></a></span>
-<span id="cb8-280"><a href="#cb8-280"></a>---</span>
-<span id="cb8-281"><a href="#cb8-281"></a></span>
-<span id="cb8-282"><a href="#cb8-282"></a><span class="fu">### Research Use Case</span></span>
+<span id="cb8-280"><a href="#cb8-280"></a><span class="ss">- </span><span class="in">`videoId`</span>, <span class="in">`title`</span>, <span class="in">`channelTitle`</span>, <span class="in">`categoryId`</span>  </span>
+<span id="cb8-281"><a href="#cb8-281"></a><span class="ss">- </span><span class="in">`publishedAt`</span>, <span class="in">`viewCount`</span>, <span class="in">`likeCount`</span>, <span class="in">`commentCount`</span>  </span>
+<span id="cb8-282"><a href="#cb8-282"></a><span class="ss">- </span><span class="in">`duration`</span></span>
 <span id="cb8-283"><a href="#cb8-283"></a></span>
-<span id="cb8-284"><a href="#cb8-284"></a>**Can real-time YouTube video metadata validate or enrich findings from historical datasets, and how might it be used to support future business applications?**</span>
+<span id="cb8-284"><a href="#cb8-284"></a>This data was saved locally as <span class="in">`youtube_api_top50_IN.csv`</span> and is included in the <span class="in">`/data`</span> folder. This file reflects a real-time snapshot and complements the static, historical datasets used in the project.</span>
 <span id="cb8-285"><a href="#cb8-285"></a></span>
-<span id="cb8-286"><a href="#cb8-286"></a><span class="fu">### Why This Matters</span></span>
-<span id="cb8-287"><a href="#cb8-287"></a></span>
-<span id="cb8-288"><a href="#cb8-288"></a>Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access** to up-to-date video trends. This can:</span>
-<span id="cb8-289"><a href="#cb8-289"></a><span class="ss">- </span>Help validate whether patterns found in Dataset 1 still apply today  </span>
-<span id="cb8-290"><a href="#cb8-290"></a><span class="ss">- </span>Provide real-time insights for content creators  </span>
-<span id="cb8-291"><a href="#cb8-291"></a><span class="ss">- </span>Support future business tools like dashboards, content calendars, or trend detection systems</span>
-<span id="cb8-292"><a href="#cb8-292"></a></span>
-<span id="cb8-293"><a href="#cb8-293"></a>This small sample demonstrates the ability to connect your project to **live data streams** — a powerful step toward applied analytics.</span>
+<span id="cb8-286"><a href="#cb8-286"></a></span>
+<span id="cb8-287"><a href="#cb8-287"></a>---</span>
+<span id="cb8-288"><a href="#cb8-288"></a></span>
+<span id="cb8-289"><a href="#cb8-289"></a><span class="fu">### Ethical Considerations</span></span>
+<span id="cb8-290"><a href="#cb8-290"></a></span>
+<span id="cb8-291"><a href="#cb8-291"></a><span class="ss">- </span>Data is collected via the **official YouTube Data API v3**, in accordance with Google’s <span class="co">[</span><span class="ot">API Terms of Service</span><span class="co">](https://developers.google.com/youtube/terms/api-services-terms-of-service)</span>  </span>
+<span id="cb8-292"><a href="#cb8-292"></a><span class="ss">- </span>Only **public metadata** is accessed; no user-level or private data is collected  </span>
+<span id="cb8-293"><a href="#cb8-293"></a><span class="ss">- </span>The API is used for read-only academic and exploratory purposes</span>
 <span id="cb8-294"><a href="#cb8-294"></a></span>
 <span id="cb8-295"><a href="#cb8-295"></a>---</span>
 <span id="cb8-296"><a href="#cb8-296"></a></span>
-<span id="cb8-297"><a href="#cb8-297"></a><span class="fu">### Variables in the Sample</span></span>
+<span id="cb8-297"><a href="#cb8-297"></a><span class="fu">### Research Use Case</span></span>
 <span id="cb8-298"><a href="#cb8-298"></a></span>
-<span id="cb8-299"><a href="#cb8-299"></a><span class="ss">- </span>**Quantitative:** <span class="in">`viewCount`</span>, <span class="in">`likeCount`</span>, <span class="in">`commentCount`</span>  </span>
-<span id="cb8-300"><a href="#cb8-300"></a><span class="ss">- </span>**Temporal:** <span class="in">`publishedAt`</span>  </span>
-<span id="cb8-301"><a href="#cb8-301"></a><span class="ss">- </span>**Categorical:** <span class="in">`categoryId`</span>, <span class="in">`channelTitle`</span>, <span class="in">`duration`</span> </span>
+<span id="cb8-299"><a href="#cb8-299"></a>**Can real-time YouTube video metadata validate or enrich findings from historical datasets, and how might it be used to support future business applications?**</span>
+<span id="cb8-300"><a href="#cb8-300"></a></span>
+<span id="cb8-301"><a href="#cb8-301"></a><span class="fu">### Why This Matters</span></span>
 <span id="cb8-302"><a href="#cb8-302"></a></span>
-<span id="cb8-303"><a href="#cb8-303"></a>---</span>
-<span id="cb8-304"><a href="#cb8-304"></a></span>
-<span id="cb8-305"><a href="#cb8-305"></a><span class="fu">### Analysis Plan</span></span>
-<span id="cb8-306"><a href="#cb8-306"></a><span class="ss">- </span>Use this file primarily for enrichment and validation — not modeling</span>
+<span id="cb8-303"><a href="#cb8-303"></a>Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access** to up-to-date video trends. This can:</span>
+<span id="cb8-304"><a href="#cb8-304"></a><span class="ss">- </span>Help validate whether patterns found in Dataset 1 still apply today  </span>
+<span id="cb8-305"><a href="#cb8-305"></a><span class="ss">- </span>Provide real-time insights for content creators  </span>
+<span id="cb8-306"><a href="#cb8-306"></a><span class="ss">- </span>Support future business tools like dashboards, content calendars, or trend detection systems</span>
 <span id="cb8-307"><a href="#cb8-307"></a></span>
-<span id="cb8-308"><a href="#cb8-308"></a><span class="ss">- </span>Convert duration from ISO 8601 to minutes and add as a new variable</span>
+<span id="cb8-308"><a href="#cb8-308"></a>This small sample demonstrates the ability to connect your project to **live data streams** — a powerful step toward applied analytics.</span>
 <span id="cb8-309"><a href="#cb8-309"></a></span>
-<span id="cb8-310"><a href="#cb8-310"></a><span class="ss">- </span>Visualize and compare distribution of viewCount and likeCount to Dataset 1</span>
+<span id="cb8-310"><a href="#cb8-310"></a>---</span>
 <span id="cb8-311"><a href="#cb8-311"></a></span>
-<span id="cb8-312"><a href="#cb8-312"></a><span class="ss">- </span>Check if shorter/longer durations correlate with engagement levels</span>
+<span id="cb8-312"><a href="#cb8-312"></a><span class="fu">### Variables in the Sample</span></span>
 <span id="cb8-313"><a href="#cb8-313"></a></span>
-<span id="cb8-314"><a href="#cb8-314"></a><span class="ss">- </span>Optionally explore:</span>
-<span id="cb8-315"><a href="#cb8-315"></a></span>
-<span id="cb8-316"><a href="#cb8-316"></a><span class="ss">  - </span>View-to-like ratios</span>
+<span id="cb8-314"><a href="#cb8-314"></a><span class="ss">- </span>**Quantitative:** <span class="in">`viewCount`</span>, <span class="in">`likeCount`</span>, <span class="in">`commentCount`</span>  </span>
+<span id="cb8-315"><a href="#cb8-315"></a><span class="ss">- </span>**Temporal:** <span class="in">`publishedAt`</span>  </span>
+<span id="cb8-316"><a href="#cb8-316"></a><span class="ss">- </span>**Categorical:** <span class="in">`categoryId`</span>, <span class="in">`channelTitle`</span>, <span class="in">`duration`</span> </span>
 <span id="cb8-317"><a href="#cb8-317"></a></span>
-<span id="cb8-318"><a href="#cb8-318"></a><span class="ss">  - </span>Category-level performance</span>
+<span id="cb8-318"><a href="#cb8-318"></a>---</span>
 <span id="cb8-319"><a href="#cb8-319"></a></span>
-<span id="cb8-320"><a href="#cb8-320"></a>Frame as a proof-of-concept for automated, ongoing data integration</span>
-<span id="cb8-321"><a href="#cb8-321"></a></span>
-<span id="cb8-322"><a href="#cb8-322"></a><span class="fu">### Role in Final Project</span></span>
-<span id="cb8-323"><a href="#cb8-323"></a>This dataset demonstrates how the YouTube API can be used to build real-time or on-demand analytics pipelines. While it won’t be used for model training, it plays a key role in validating generalizability, supporting feature engineering, and establishing a future-facing path for creator-focused analytics tools.</span>
+<span id="cb8-320"><a href="#cb8-320"></a><span class="fu">### Analysis Plan</span></span>
+<span id="cb8-321"><a href="#cb8-321"></a><span class="ss">- </span>Use this file primarily for enrichment and validation — not modeling</span>
+<span id="cb8-322"><a href="#cb8-322"></a></span>
+<span id="cb8-323"><a href="#cb8-323"></a><span class="ss">- </span>Convert duration from ISO 8601 to minutes and add as a new variable</span>
 <span id="cb8-324"><a href="#cb8-324"></a></span>
-<span id="cb8-325"><a href="#cb8-325"></a><span class="fu">## Weekly Plan of Attack</span></span>
+<span id="cb8-325"><a href="#cb8-325"></a><span class="ss">- </span>Visualize and compare distribution of viewCount and likeCount to Dataset 1</span>
 <span id="cb8-326"><a href="#cb8-326"></a></span>
-<span id="cb8-327"><a href="#cb8-327"></a><span class="fu">### Week 1: Finalize Data &amp; Preprocessing (Aug 2–Aug 8)</span></span>
+<span id="cb8-327"><a href="#cb8-327"></a><span class="ss">- </span>Check if shorter/longer durations correlate with engagement levels</span>
 <span id="cb8-328"><a href="#cb8-328"></a></span>
-<span id="cb8-329"><a href="#cb8-329"></a><span class="ss">- </span>Submit proposal and finalize dataset files in <span class="in">`/data`</span> folder</span>
-<span id="cb8-330"><a href="#cb8-330"></a><span class="ss">- </span>Clean and standardize variables (e.g., dates, durations, text)</span>
-<span id="cb8-331"><a href="#cb8-331"></a><span class="ss">- </span>Engineer new features like:</span>
-<span id="cb8-332"><a href="#cb8-332"></a><span class="ss">  - </span><span class="in">`title_length`</span>, <span class="in">`upload_hour`</span>, <span class="in">`like_ratio`</span>, <span class="in">`duration_minutes`</span></span>
-<span id="cb8-333"><a href="#cb8-333"></a><span class="ss">- </span>Save cleaned version for modeling in <span class="in">`/notebooks`</span> or <span class="in">`/src`</span></span>
+<span id="cb8-329"><a href="#cb8-329"></a><span class="ss">- </span>Optionally explore:</span>
+<span id="cb8-330"><a href="#cb8-330"></a></span>
+<span id="cb8-331"><a href="#cb8-331"></a><span class="ss">  - </span>View-to-like ratios</span>
+<span id="cb8-332"><a href="#cb8-332"></a></span>
+<span id="cb8-333"><a href="#cb8-333"></a><span class="ss">  - </span>Category-level performance</span>
 <span id="cb8-334"><a href="#cb8-334"></a></span>
-<span id="cb8-335"><a href="#cb8-335"></a>---</span>
+<span id="cb8-335"><a href="#cb8-335"></a>Frame as a proof-of-concept for automated, ongoing data integration</span>
 <span id="cb8-336"><a href="#cb8-336"></a></span>
-<span id="cb8-337"><a href="#cb8-337"></a><span class="fu">### Week 2: Modeling &amp; Exploratory Analysis (Aug 9–Aug 15)</span></span>
-<span id="cb8-338"><a href="#cb8-338"></a></span>
-<span id="cb8-339"><a href="#cb8-339"></a><span class="ss">- </span>Conduct exploratory analysis:</span>
-<span id="cb8-340"><a href="#cb8-340"></a><span class="ss">  - </span>Views by category, upload time, title length</span>
-<span id="cb8-341"><a href="#cb8-341"></a><span class="ss">  - </span>Correlations and class imbalance check</span>
-<span id="cb8-342"><a href="#cb8-342"></a><span class="ss">- </span>Define target variable:</span>
-<span id="cb8-343"><a href="#cb8-343"></a><span class="ss">  - </span>Binary (e.g., top 25% views = &quot;high performer&quot;) or regression</span>
-<span id="cb8-344"><a href="#cb8-344"></a><span class="ss">- </span>Train and evaluate models:</span>
-<span id="cb8-345"><a href="#cb8-345"></a><span class="ss">  - </span>Logistic Regression, Decision Tree, Random Forest</span>
-<span id="cb8-346"><a href="#cb8-346"></a><span class="ss">- </span>Use classification metrics:</span>
-<span id="cb8-347"><a href="#cb8-347"></a><span class="ss">  - </span>Accuracy, ROC-AUC, precision, recall</span>
-<span id="cb8-348"><a href="#cb8-348"></a><span class="ss">- </span>Review feature importance to guide interpretation</span>
+<span id="cb8-337"><a href="#cb8-337"></a><span class="fu">### Role in Final Project</span></span>
+<span id="cb8-338"><a href="#cb8-338"></a>This dataset demonstrates how the YouTube API can be used to build real-time or on-demand analytics pipelines. While it won’t be used for model training, it plays a key role in validating generalizability, supporting feature engineering, and establishing a future-facing path for creator-focused analytics tools.</span>
+<span id="cb8-339"><a href="#cb8-339"></a></span>
+<span id="cb8-340"><a href="#cb8-340"></a><span class="fu">## Weekly Plan of Attack</span></span>
+<span id="cb8-341"><a href="#cb8-341"></a></span>
+<span id="cb8-342"><a href="#cb8-342"></a><span class="fu">### Week 1: Finalize Data &amp; Preprocessing (Aug 2–Aug 8)</span></span>
+<span id="cb8-343"><a href="#cb8-343"></a></span>
+<span id="cb8-344"><a href="#cb8-344"></a><span class="ss">- </span>Submit proposal and finalize dataset files in <span class="in">`/data`</span> folder</span>
+<span id="cb8-345"><a href="#cb8-345"></a><span class="ss">- </span>Clean and standardize variables (e.g., dates, durations, text)</span>
+<span id="cb8-346"><a href="#cb8-346"></a><span class="ss">- </span>Engineer new features like:</span>
+<span id="cb8-347"><a href="#cb8-347"></a><span class="ss">  - </span><span class="in">`title_length`</span>, <span class="in">`upload_hour`</span>, <span class="in">`like_ratio`</span>, <span class="in">`duration_minutes`</span></span>
+<span id="cb8-348"><a href="#cb8-348"></a><span class="ss">- </span>Save cleaned version for modeling in <span class="in">`/notebooks`</span> or <span class="in">`/src`</span></span>
 <span id="cb8-349"><a href="#cb8-349"></a></span>
 <span id="cb8-350"><a href="#cb8-350"></a>---</span>
 <span id="cb8-351"><a href="#cb8-351"></a></span>
-<span id="cb8-352"><a href="#cb8-352"></a><span class="fu">### Week 3: Report Writing &amp; Presentation (Aug 16–Aug 21)</span></span>
+<span id="cb8-352"><a href="#cb8-352"></a><span class="fu">### Week 2: Modeling &amp; Exploratory Analysis (Aug 9–Aug 15)</span></span>
 <span id="cb8-353"><a href="#cb8-353"></a></span>
-<span id="cb8-354"><a href="#cb8-354"></a><span class="ss">- </span>Create <span class="in">`presentation.qmd`</span> with key visualizations and model insights</span>
-<span id="cb8-355"><a href="#cb8-355"></a><span class="ss">- </span>Tell a clear story: problem → data → features → modeling → takeaways</span>
-<span id="cb8-356"><a href="#cb8-356"></a><span class="ss">- </span>Add a reflection section:</span>
-<span id="cb8-357"><a href="#cb8-357"></a><span class="ss">  - </span>What I learned, what I would improve with more time</span>
-<span id="cb8-358"><a href="#cb8-358"></a><span class="ss">- </span>Clean up GitHub repo:</span>
-<span id="cb8-359"><a href="#cb8-359"></a><span class="ss">  - </span>Add README, remove unused files, ensure reproducibility</span>
+<span id="cb8-354"><a href="#cb8-354"></a><span class="ss">- </span>Conduct exploratory analysis:</span>
+<span id="cb8-355"><a href="#cb8-355"></a><span class="ss">  - </span>Views by category, upload time, title length</span>
+<span id="cb8-356"><a href="#cb8-356"></a><span class="ss">  - </span>Correlations and class imbalance check</span>
+<span id="cb8-357"><a href="#cb8-357"></a><span class="ss">- </span>Define target variable:</span>
+<span id="cb8-358"><a href="#cb8-358"></a><span class="ss">  - </span>Binary (e.g., top 25% views = &quot;high performer&quot;) or regression</span>
+<span id="cb8-359"><a href="#cb8-359"></a><span class="ss">- </span>Train and evaluate models:</span>
+<span id="cb8-360"><a href="#cb8-360"></a><span class="ss">  - </span>Logistic Regression, Decision Tree, Random Forest</span>
+<span id="cb8-361"><a href="#cb8-361"></a><span class="ss">- </span>Use classification metrics:</span>
+<span id="cb8-362"><a href="#cb8-362"></a><span class="ss">  - </span>Accuracy, ROC-AUC, precision, recall</span>
+<span id="cb8-363"><a href="#cb8-363"></a><span class="ss">- </span>Review feature importance to guide interpretation</span>
+<span id="cb8-364"><a href="#cb8-364"></a></span>
+<span id="cb8-365"><a href="#cb8-365"></a>---</span>
+<span id="cb8-366"><a href="#cb8-366"></a></span>
+<span id="cb8-367"><a href="#cb8-367"></a><span class="fu">### Week 3: Report Writing &amp; Presentation (Aug 16–Aug 21)</span></span>
+<span id="cb8-368"><a href="#cb8-368"></a></span>
+<span id="cb8-369"><a href="#cb8-369"></a><span class="ss">- </span>Create <span class="in">`presentation.qmd`</span> with key visualizations and model insights</span>
+<span id="cb8-370"><a href="#cb8-370"></a><span class="ss">- </span>Tell a clear story: problem → data → features → modeling → takeaways</span>
+<span id="cb8-371"><a href="#cb8-371"></a><span class="ss">- </span>Add a reflection section:</span>
+<span id="cb8-372"><a href="#cb8-372"></a><span class="ss">  - </span>What I learned, what I would improve with more time</span>
+<span id="cb8-373"><a href="#cb8-373"></a><span class="ss">- </span>Clean up GitHub repo:</span>
+<span id="cb8-374"><a href="#cb8-374"></a><span class="ss">  - </span>Add README, remove unused files, ensure reproducibility</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
