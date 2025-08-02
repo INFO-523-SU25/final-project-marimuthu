@@ -31,7 +31,7 @@ import pandas as pd
 ## Dataset
 
 ```{python}
-#| label: load-dataset
+#| label: load-dataset1
 #| message: false
 ## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 
@@ -104,7 +104,8 @@ I will examine how the following video characteristics influence engagement metr
 - **Video category** (`categoryId`)
 - **Tags** (number of tags, presence of specific keywords)
 
-influence performance metrics such as:
+These characteristics may influence performance metrics such as:
+
 - `view_count`
 - `likes`
 - `comment_count`
@@ -154,7 +155,7 @@ To answer the research question, I will:
 
 ```{python}
 
-#| label: load-dataset
+#| label: load-dataset2
 #| message: false
 ## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)
 
@@ -244,7 +245,7 @@ This dataset will serve as a focused benchmark of top-performing content. While 
 
 ```{python}
 
-#| label: load-dataset
+#| label: load-dataset3
 #| message: false
 ## Dataset 3: YouTube Trending Videos via API (India)
 
