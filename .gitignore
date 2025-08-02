@@ -7,3 +7,4 @@
 _site/*
 data/IN_youtube_trending_data.csv
 .env
+proposal_files/
