@@ -62,7 +62,7 @@ To access the dataset, please use the following Google Drive link:
 
 [Download IN_youtube_trending_data.csv](https://drive.google.com/file/d/17TAprXIrTiePPgliwnLybNiDe-_tC4tv/view?usp=drive_link)
 
-After downloading, place the file in the data folder:
+After downloading, place the file in the `data` folder.
 
 ---
 
@@ -144,7 +144,7 @@ To answer the research question, I will:
 
 #### - Interpret results:
 - Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success
-- Relate findings back to your research question and practical implications for content creators
+- Relate findings back to the research question and practical implications for content creators
 
 **Note:** The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.
 
@@ -297,7 +297,7 @@ Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access**
 - Provide real-time insights for content creators  
 - Support future business tools like dashboards, content calendars, or trend detection systems
 
-This small sample demonstrates the ability to connect your project to **live data streams** — a powerful step toward applied analytics.
+This small sample demonstrates the ability to connect my project to **live data streams** — a powerful step toward applied analytics.
 
 ---
 
