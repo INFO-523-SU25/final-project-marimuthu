@@ -1,11 +1,11 @@
 ---
-title: "Project Title"
+title: "Modeling and Predicting YouTube Engagement"
 subtitle: "INFO 523 - Final Project"
 author: 
-  - name: "Team name - Team member 1, Team member 2,..."
+  - name: Ashok kumar Marimuthu
     affiliations:
       - name: "College of Information Science, University of Arizona"
-description: "Project description"
+description: "This project analyzes YouTube video metadata such as title, category, and publish time to explore their impact on engagement metrics like views, likes, and comments. The goal is to uncover patterns that help explain why certain videos trend or perform better."
 format:
    html:
     code-tools: true
@@ -20,4 +20,7 @@ jupyter: python3
 
 ## Abstract
 
-Add project abstract here.
+With millions of videos uploaded to YouTube daily, understanding what drives viewer engagement is essential for content creators. This project explores how key video attributes such as title wording, category, upload timing, and video duration influence engagement metrics like views, likes, and comments. Using a dataset of trending videos from India, the analysis focuses on uncovering patterns and predictors associated with higher performance. The goal is to generate actionable insights that support content strategy for new and growing channels. These findings will also help inform the early direction of a future educational YouTube channel and a creator-focused analytics concept currently in development.
+
+```{python}
+```

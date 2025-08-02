@@ -1,8 +1,8 @@
 ---
-title: "Proposal title"
+title: "Modeling and Predicting YouTube Engagement"
 subtitle: "Proposal"
 author: 
-  - name: "Team Name - Team member 1, Team member 2,..."
+  - name: "Marimuthu - Ashok kumar Marimuthu"
     affiliations:
       - name: "College of Information Science, University of Arizona"
 description: "Project description"
@@ -23,23 +23,329 @@ jupyter: python3
 #| label: load-pkgs
 #| message: false
 import numpy as np
+import pandas as pd
+
 ```
 
 ## Dataset
 
 ```{python}
+## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 #| label: load-dataset
 #| message: false
+
+df = pd.read_csv("data/IN_youtube_trending_data.csv")
+print("shape:\n",df.shape)
+print("===================================================================================")
+print("sample:\n",df.head())
+print("===================================================================================")
+print("Info:\n",df.info())
 ```
 
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 
-Make sure to load the data and use inline code for some of this information.
+### Source and Provenance
 
-## Questions
+- **Source:** [Kaggle – rsrishav/youtube-trending-video-dataset](https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset)  
+- **Collected by:** Kaggle user [@rsrishav](https://www.kaggle.com/rsrishav)  
+- **Date Collected:** The dataset was last updated in 2023  
+- **How it was collected:** Video metadata was scraped daily from YouTube’s trending page in India using YouTube API and stored as structured CSVs.
 
-The two questions you want to answer.
+---
 
-## Analysis plan
+### Description of Observations
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+This file contains metadata for trending YouTube videos in **India**. Each row represents a video trending on a specific day. Videos that trend across multiple days appear multiple times in the dataset.
+
+The dataset includes **approximately 251,000 rows and 15 columns**. Key variables include:
+
+- `title` – video title  
+- `channelTitle` – channel name  
+- `publishedAt` – original video upload time  
+- `view_count`, `likes`, `comment_count` – performance metrics  
+- `tags`, `description`, `categoryId` – contextual info
+
+This dataset supports both categorical and quantitative analysis. It’s suitable for time-based, text-based, and engagement-based exploration.
+
+---
+
+### Ethical Considerations
+
+- All metadata is collected from **publicly accessible video pages**
+- No private or personally identifiable user information (PII) is included
+- The data is shared under Kaggle’s open use policy for academic and non-commercial use
+
+---
+
+### Research Question
+
+**1. What video characteristics (e.g., publish time, title structure, tags, category) are associated with higher engagement (views, likes, comments)?**
+
+**2. Can we build a predictive model to identify whether a video will be high-performing based on its metadata?**
+
+I will examine how the following video characteristics influence engagement metrics (views, likes, comments):
+
+- **Publish timing** (hour and day of the week)
+- **Title length and patterns** (e.g., keyword use, clickbait phrases, presence of numbers)
+- **Video category** (`categoryId`)
+- **Tags** (number of tags, presence of specific keywords)
+
+**Note:** The dataset does not include video duration or thumbnail image content. These may be considered in future work using the YouTube Data API.
+
+influence performance metrics such as:
+- `view_count`
+- `likes`
+- `comment_count`
+
+#### Why This Matters
+
+This question is relevant for both established creators and new channels aiming to optimize content strategy for discoverability and engagement.
+
+---
+
+### Analysis Plan
+
+To answer the research question, I will:
+
+#### - Preprocess the data:
+- Convert `publishedAt` to `datetime` format
+- Extract features such as `hour`, `weekday`, and create `daypart` buckets (morning/afternoon/evening)
+- Handle duplicate trending entries by keeping the first appearance or aggregating views/likes
+
+#### - Create new variables:
+- `title_length`: total number of characters in the video title
+- `has_numbers_in_title`: binary indicator for numbers in title (e.g., “Top 5”, “2023”)
+- `upload_hour_bucket`: categorical variable (e.g., morning, afternoon, evening)
+- `tag_count`: number of tags used
+
+#### - Explore patterns:
+- Group by `categoryId`, `upload_hour_bucket`, and `title_length` to visualize how engagement (views/likes/comments) varies
+- Use bar plots, boxplots, and heatmaps to show relationships
+
+#### - Build a predictive model:
+- Define the target variable:
+  - `high_performer`: binary variable = 1 if video is in the top 25% by view count, else 0
+- Use supervised learning models (e.g., logistic regression, decision tree, or random forest)
+- Train/test split and evaluate model using accuracy, precision, recall, and ROC-AUC
+- Identify the most important features contributing to video performance
+
+#### - Interpret results:
+- Use model outputs (coefficients or feature importance) to explain which video characteristics are most predictive of success
+- Relate findings back to your research question and practical implications for content creators
+
+**Note:** The final set of features may evolve as the analysis progresses, based on data quality, correlations, or insights from EDA. While the initial modeling plan includes classification using logistic regression or decision trees, the specific model and feature set will be finalized based on what proves most effective during the modeling phase. The target variable is currently defined as videos in the top 25% of view count, but this threshold may be adjusted after reviewing the distribution.
+
+
+
+
+```{python}
+## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)
+#| label: load-dataset
+#| message: false
+
+df2 = pd.read_csv("data/top-1000-trending-youtube-videos.csv")
+print("shape:\n",df2.shape)
+print("===================================================================================")
+print("sample:\n",df2.head())
+print("===================================================================================")
+print("Info:\n",df2.info())
+```
+
+## Dataset 2: Top 1000 Trending YouTube Videos (Kaggle)
+
+### Source and Provenance
+
+- **Source:** [Kaggle – 1000 Most Trending YouTube Videos](https://www.kaggle.com/datasets/samithsachidanandan/1000-most-trending-youtube-videos)  
+- **Collected by:** Samith Sachidanandan  
+- **Date Collected:** Not specified; likely compiled as a snapshot of all-time trending videos  
+- **How it was collected:** Curated list of the most viewed and liked YouTube videos, possibly scraped from YouTube’s top charts. The dataset includes basic metadata and performance metrics.
+
+---
+
+### Description of Observations
+
+This dataset contains **1,000 records**, each representing a globally popular YouTube video. It includes the following columns:
+
+- `rank`: position in the top 1000  
+- `Video`: title of the video  
+- `Video views`: number of views  
+- `Likes`: number of likes  
+- `Dislikes`: number of dislikes  
+- `Category`: general topic (e.g., Music, Sports)  
+- `published`: year the video was published
+
+Although compact, this dataset captures extremely successful videos and is useful for identifying characteristics shared by top performers across different time periods and content types.
+
+---
+
+### Ethical Considerations
+
+- The dataset contains only **publicly available metadata** from YouTube  
+- No personal or user-level data is included  
+- It is shared under Kaggle’s community license for academic and non-commercial use
+
+---
+
+### Research Question
+
+**What common characteristics do top-performing YouTube videos share across categories and publishing years?**
+
+This dataset will help explore whether video success correlates with:
+- Category (e.g., Music vs. Gaming)
+- Year of publication (older vs. newer content)
+- View-to-like ratios or audience engagement patterns
+
+#### Why This Matters:
+This dataset provides a snapshot of **top-tier performers**, helping validate whether trends found in the larger India-specific dataset (Dataset 1) hold true at the global, all-time level.
+
+---
+
+### Variables to Explore
+
+- **Quantitative:** `Video views`, `Likes`, `Dislikes`  
+- **Categorical:** `Category`, `published` (as a proxy for video age)
+
+---
+
+### Analysis Plan
+Convert Video views, Likes, and Dislikes to numeric format (they may be strings with commas)
+
+#### - Create new derived variables:
+
+- like_ratio = Likes / Video views
+
+- engagement_score = (Likes + Dislikes) / Video views
+
+#### - Analyze view counts and like ratios by Category and published year
+
+- Visualize trends in engagement over time and across categories
+
+- Compare the findings with those from Dataset 1 to see if the characteristics of top-trending videos align with broader trending patterns
+
+#### - Role in Final Project
+This dataset will serve as a focused benchmark of top-performing content. While it won’t be used for predictive modeling, it provides valuable insight into common characteristics of high-success videos and supports cross-validation of patterns discovered in the larger primary dataset.
+
+
+```{python}
+## Dataset 3: YouTube Trending Videos via API (India)
+#| label: load-dataset
+#| message: false
+
+df3 = pd.read_csv("data/youtube_api_sample.csv")
+print("shape:\n",df3.shape)
+print("===================================================================================")
+print("sample:\n",df3.head())
+print("===================================================================================")
+print("Info:\n",df3.info())
+```
+## Dataset 3: YouTube Trending Videos via API (India)
+
+### Source and Provenance
+
+- **Source:** [YouTube Data API v3 – Google Developer Platform](https://developers.google.com/youtube/v3)  
+- **Collected by:** Custom script using Google’s official API  
+- **Date Collected:** 08/01/2025 
+- **How it was collected:**  
+  A Python script was used to query the YouTube Data API for the top 50 trending videos in India (`regionCode="IN"`) using the `videos().list()` endpoint with `chart="mostPopular"`.
+
+---
+
+### Description of Observations
+
+The dataset contains metadata for **50 currently trending videos in India**, including:
+
+- `videoId`, `title`, `channelTitle`, `categoryId`  
+- `publishedAt`, `viewCount`, `likeCount`, `commentCount`  
+- `duration`
+
+This data was saved locally as `youtube_api_top50_IN.csv` and is included in the `/data` folder. This file reflects a real-time snapshot and complements the static, historical datasets used in the project.
+
+
+---
+
+### Ethical Considerations
+
+- Data is collected via the **official YouTube Data API v3**, in accordance with Google’s [API Terms of Service](https://developers.google.com/youtube/terms/api-services-terms-of-service)  
+- Only **public metadata** is accessed; no user-level or private data is collected  
+- The API is used for read-only academic and exploratory purposes
+
+---
+
+### Research Use Case
+
+**Can real-time YouTube video metadata validate or enrich findings from historical datasets, and how might it be used to support future business applications?**
+
+### Why This Matters
+
+Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access** to up-to-date video trends. This can:
+- Help validate whether patterns found in Dataset 1 still apply today  
+- Provide real-time insights for content creators  
+- Support future business tools like dashboards, content calendars, or trend detection systems
+
+This small sample demonstrates the ability to connect your project to **live data streams** — a powerful step toward applied analytics.
+
+---
+
+### Variables in the Sample
+
+- **Quantitative:** `viewCount`, `likeCount`, `commentCount`  
+- **Temporal:** `publishedAt`  
+- **Categorical:** `categoryId`, `channelTitle`, `duration` 
+
+---
+
+### Analysis Plan
+- Use this file primarily for enrichment and validation — not modeling
+
+- Convert duration from ISO 8601 to minutes and add as a new variable
+
+- Visualize and compare distribution of viewCount and likeCount to Dataset 1
+
+- Check if shorter/longer durations correlate with engagement levels
+
+- Optionally explore:
+
+  - View-to-like ratios
+
+  - Category-level performance
+
+Frame as a proof-of-concept for automated, ongoing data integration
+
+### Role in Final Project
+This dataset demonstrates how the YouTube API can be used to build real-time or on-demand analytics pipelines. While it won’t be used for model training, it plays a key role in validating generalizability, supporting feature engineering, and establishing a future-facing path for creator-focused analytics tools.
+
+## Weekly Plan of Attack
+
+### Week 1: Finalize Data & Preprocessing (Aug 2–Aug 8)
+
+- Submit proposal and finalize dataset files in `/data` folder
+- Clean and standardize variables (e.g., dates, durations, text)
+- Engineer new features like:
+  - `title_length`, `upload_hour`, `like_ratio`, `duration_minutes`
+- Save cleaned version for modeling in `/notebooks` or `/src`
+
+---
+
+### Week 2: Modeling & Exploratory Analysis (Aug 9–Aug 15)
+
+- Conduct exploratory analysis:
+  - Views by category, upload time, title length
+  - Correlations and class imbalance check
+- Define target variable:
+  - Binary (e.g., top 25% views = "high performer") or regression
+- Train and evaluate models:
+  - Logistic Regression, Decision Tree, Random Forest
+- Use classification metrics:
+  - Accuracy, ROC-AUC, precision, recall
+- Review feature importance to guide interpretation
+
+---
+
+### Week 3: Report Writing & Presentation (Aug 16–Aug 21)
+
+- Create `presentation.qmd` with key visualizations and model insights
+- Tell a clear story: problem → data → features → modeling → takeaways
+- Add a reflection section:
+  - What I learned, what I would improve with more time
+- Clean up GitHub repo:
+  - Add README, remove unused files, ensure reproducibility

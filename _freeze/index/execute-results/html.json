@@ -1,7 +1,8 @@
 {
-  "hash": "0e6b82ab6a634a8b8dc925668c0f975c",
+  "hash": "d07dbe71e2aac39d225284265ad10adb",
   "result": {
-    "markdown": "---\ntitle: Project title\nsubtitle: INFO 523 - Project Final\nauthor: Team name\nformat: html\neditor: visual\n---\n\n## Abstract\n\nAdd project abstract here.\n\n",
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Modeling and Predicting YouTube Engagement\"\nsubtitle: \"INFO 523 - Final Project\"\nauthor: \n  - name: Ashok kumar Marimuthu\n    affiliations:\n      - name: \"College of Information Science, University of Arizona\"\ndescription: \"This project analyzes YouTube video metadata such as title, category, and publish time to explore their impact on engagement metrics like views, likes, and comments. The goal is to uncover patterns that help explain why certain videos trend or perform better.\"\nformat:\n   html:\n    code-tools: true\n    code-overflow: wrap\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n  echo: false\njupyter: python3\n---\n\n## Abstract\n\nWith millions of videos uploaded to YouTube daily, understanding what drives viewer engagement is essential for content creators. This project explores how key video attributes such as title wording, category, upload timing, and video duration influence engagement metrics like views, likes, and comments. Using a dataset of trending videos from India, the analysis focuses on uncovering patterns and predictors associated with higher performance. The goal is to generate actionable insights that support content strategy for new and growing channels. These findings will also help inform the early direction of a future educational YouTube channel and a creator-focused analytics concept currently in development.\n\n",
     "supporting": [
       "index_files"
     ],
