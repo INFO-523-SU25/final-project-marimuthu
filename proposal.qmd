@@ -5,7 +5,7 @@ author:
   - name: "Marimuthu - Ashok kumar Marimuthu"
     affiliations:
       - name: "College of Information Science, University of Arizona"
-description: "Project description"
+description: "This project analyzes YouTube video metadata such as title, category, and publish time to explore their impact on engagement metrics like views, likes, and comments. The goal is to uncover patterns that help explain why certain videos trend or perform better."
 format:
   html:
     code-tools: true
@@ -30,9 +30,9 @@ import pandas as pd
 ## Dataset
 
 ```{python}
-## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 #| label: load-dataset
 #| message: false
+## Dataset 1: YouTube Trending Video Dataset (Kaggle – India)
 
 df = pd.read_csv("data/IN_youtube_trending_data.csv")
 print("shape:\n",df.shape)
@@ -103,12 +103,12 @@ I will examine how the following video characteristics influence engagement metr
 - **Video category** (`categoryId`)
 - **Tags** (number of tags, presence of specific keywords)
 
-**Note:** The dataset does not include video duration or thumbnail image content. These may be considered in future work using the YouTube Data API.
-
 influence performance metrics such as:
 - `view_count`
 - `likes`
 - `comment_count`
+
+**Note:** The dataset does not include video duration or thumbnail image content. These may be considered in future work using the YouTube Data API.
 
 #### Why This Matters
 
@@ -152,9 +152,10 @@ To answer the research question, I will:
 
 
 ```{python}
-## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)
+
 #| label: load-dataset
 #| message: false
+## Dataset 2: 1000 Most Trending YouTube Videos (Kaggle)
 
 df2 = pd.read_csv("data/top-1000-trending-youtube-videos.csv")
 print("shape:\n",df2.shape)
@@ -241,9 +242,10 @@ This dataset will serve as a focused benchmark of top-performing content. While 
 
 
 ```{python}
-## Dataset 3: YouTube Trending Videos via API (India)
+
 #| label: load-dataset
 #| message: false
+## Dataset 3: YouTube Trending Videos via API (India)
 
 df3 = pd.read_csv("data/youtube_api_sample.csv")
 print("shape:\n",df3.shape)
@@ -261,7 +263,7 @@ df3.info()
 - **Collected by:** Custom script using Google’s official API  
 - **Date Collected:** 08/01/2025 
 - **How it was collected:**  
-  A Python script was used to query the YouTube Data API for the top 50 trending videos in India (`regionCode="IN"`) using the `videos().list()` endpoint with `chart="mostPopular"`.
+  A Python script was used to query the YouTube Data API for the top 50 trending videos in India (`regionCode="IN"`) using the `videos().list()` endpoint with `chart="mostPopular"`. Please refer to the script `\code\youtube_api_loader.ipynb` and use your API to reproduce the data set.
 
 ---
 
@@ -273,7 +275,7 @@ The dataset contains metadata for **50 currently trending videos in India**, inc
 - `publishedAt`, `viewCount`, `likeCount`, `commentCount`  
 - `duration`
 
-This data was saved locally as `youtube_api_top50_IN.csv` and is included in the `/data` folder. This file reflects a real-time snapshot and complements the static, historical datasets used in the project.
+This data was saved locally as `youtube_api_sample.csv` and is included in the `/data` folder. This file reflects a real-time snapshot and complements the static, historical datasets used in the project.
 
 
 ---
@@ -292,12 +294,13 @@ This data was saved locally as `youtube_api_top50_IN.csv` and is included in the
 
 ### Why This Matters
 
-Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access** to up-to-date video trends. This can:
+Unlike static CSVs, the YouTube Data API enables **ongoing and scalable access** to up-to-date video trends. 
+This can:
 - Help validate whether patterns found in Dataset 1 still apply today  
 - Provide real-time insights for content creators  
 - Support future business tools like dashboards, content calendars, or trend detection systems
 
-This small sample demonstrates the ability to connect my project to **live data streams** — a powerful step toward applied analytics.
+This small sample demonstrates the ability to connect this project to **live data streams** — a powerful step toward applied analytics.
 
 ---
 
