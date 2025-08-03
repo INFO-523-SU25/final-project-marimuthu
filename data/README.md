@@ -1,7 +1,9 @@
 # Data
--   **[Dataset]**: YouTube Trending Video Dataset (Kaggle – India)
+-   **Dataset - 1 : YouTube Trending Video Dataset (Kaggle – India)**
+  
+   - This data set contains trending YouTube videos in India along with engagement metrics.
 
-# Codebook for YouTube Trending Video Dataset
+# Codebook for YouTube Trending Video Dataset in India
 
 ## Variable Names and Descriptions:
 
@@ -41,6 +43,64 @@
 - `ratings_disabled`: boolean
 - `description`: object
 
+---
 
+# Data
+-   **Dataset - 2 : 1000 Most Trending YouTube Videos (Kaggle)**
+
+    - This dataset contains the 1,000 most trending YouTube videos globally, including engagement metrics and video metadata.
+
+# Codebook for YouTube International Trending Video Dataset
+
+## Variable Names and Descriptions:
+
+- `rank`: Rank of video in the trending list
+- `Video`: Title of the video
+- `Video views`: Number of views
+- `Likes`: Number of likes
+- `Dislikes`: Number of dislikes
+- `Category`: Category of the video
+- `published`: Year the video was published
+
+## Data Types:
+
+- `rank`: numeric
+- `Video`: object
+- `Video views`: object
+- `Likes`: object
+- `Dislikes`: object
+- `Category`: object
+- `published`: numeric
+
+# Data
+-   **Dataset - 3 : YouTube Trending Videos via API (India)**
+
+    - This dataset contains trending YouTube videos in India fetched using the YouTube Data API, including engagement metrics and metadata for the most popular recent videos.
+
+# Codebook for YouTube Trending Video Dataset
+
+## Variable Names and Descriptions:
+
+- `videoId`: Unique ID for the video
+- `title`: Title of the video
+- `channelTitle`: Title of the channel
+- `categoryId`: Category code (numerical)
+- `publishedAt`: Date and time the video was published
+- `viewCount`: Number of views
+- `likeCount`: Number of likes
+- `commentCount`: Number of comments
+- `duration`: Length of the video (in ISO 8601 duration format)
+
+## Data Types:
+
+- `videoId`: object
+- `title`: object
+- `channelTitle`: object
+- `categoryId`: numeric
+- `publishedAt`: object
+- `viewCount`: numeric
+- `likeCount`: numeric
+- `commentCount`: numeric
+- `duration`: object
 
 
