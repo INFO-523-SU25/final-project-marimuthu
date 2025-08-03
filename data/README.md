@@ -1,6 +1,5 @@
-# Data
--   **Dataset - 1 : YouTube Trending Video Dataset (Kaggle – India)**
-  
+# Dataset - 1:
+## YouTube Trending Video Dataset (Kaggle – India)
    - This data set contains trending YouTube videos in India along with engagement metrics.
 
 # Codebook for YouTube Trending Video Dataset in India
@@ -45,10 +44,9 @@
 
 ---
 
-# Data
--   **Dataset - 2 : 1000 Most Trending YouTube Videos (Kaggle)**
-
-    - This dataset contains the 1,000 most trending YouTube videos globally, including engagement metrics and video metadata.
+## Dataset - 2
+## 1000 Most Trending YouTube Videos (Kaggle)
+- This dataset contains the 1,000 most trending YouTube videos globally, including engagement metrics and video metadata.
 
 # Codebook for YouTube International Trending Video Dataset
 
@@ -72,10 +70,9 @@
 - `Category`: object
 - `published`: numeric
 
-# Data
--   **Dataset - 3 : YouTube Trending Videos via API (India)**
-
-    - This dataset contains trending YouTube videos in India fetched using the YouTube Data API, including engagement metrics and metadata for the most popular recent videos.
+# Dataset - 3
+## YouTube Trending Videos via API (India)
+- This dataset contains trending YouTube videos in India fetched using the YouTube Data API, including engagement metrics and metadata for the most popular recent videos.
 
 # Codebook for YouTube Trending Video Dataset
 
@@ -102,5 +99,6 @@
 - `likeCount`: numeric
 - `commentCount`: numeric
 - `duration`: object
+
 
 
