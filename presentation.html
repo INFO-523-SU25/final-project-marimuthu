@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-528feb55a637206dacf39507b99053c4.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e97f91b1343a9589ecc59a2cf4ecf6a3.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -139,23 +139,21 @@ Ashok kumar Marimuthu
 </div>
 
 </section>
-<section id="what-why" class="title-slide slide level1 center">
-<h1>What &amp; Why</h1>
+<section id="what-why" class="slide level2">
+<h2>What &amp; Why</h2>
+<p><strong>What are we solving?</strong><br><span style="font-size: 35px;">Can we predict whether a YouTube video will get high engagement using just its metadata?</span></p>
 <div class="columns">
-<div class="column" style="width:65%;">
-<p><strong>What are we solving?</strong><br>
-Can we predict whether a YouTube video will get high engagement using just its metadata?</p>
+<div class="column" style="width:70%;">
 <p><strong>Why does it matter?</strong><br>
-- ⏰ Timing, title, and early traction can make a huge difference<br>
+<span style="font-size: 35px;">- ⏰ Timing, title, and early traction can make a huge difference<br>
 - 🧑‍🏫 Creators can optimize effort and boost visibility<br>
-- 📈 Modeling can guide strategy and platform recommendations</p>
-</div><div class="column" style="width:35%;">
+- 📈 Modeling can guide strategy and platform recommendations</span></p>
+</div><div class="column" style="width:30%;">
 <p><img data-src="images/youtube_chart_clean.jpg" style="width:100.0%"></p>
 </div></div>
 </section>
-
-<section id="how-we-approached-it" class="title-slide slide level1 center">
-<h1>How We Approached It</h1>
+<section id="how-we-approached-it" class="slide level2">
+<h2>How We Approached It</h2>
 <div class="columns">
 <div class="column" style="width:100%;">
 <ul>
@@ -170,35 +168,25 @@ Can we predict whether a YouTube video will get high engagement using just its m
 </ul>
 </div></div>
 </section>
-
-<section id="the-dataset" class="title-slide slide level1 center">
-<h1>The Dataset</h1>
-<div class="columns.with-divider">
-<div class="column bordered" style="width:40%;">
+<section id="the-dataset" class="slide level2">
+<h2>The Dataset</h2>
 <ul>
-<li><p>📦 Source:</p>
-<p>India YouTube Trending Video Dataset (Kaggle)</p></li>
-<li><p>📊 Size:</p>
-<p>251,277 rows across 16 columns ~78,847 unique videos</p></li>
-</ul>
-</div><div class="column" style="width:52%;">
-<ul>
-<li>🛠️ Key Features Used:
+<li>📦 <strong>Source:</strong> <span style="font-size: 35px;">India YouTube Trending Video Dataset (Kaggle)</span></li>
+<li>📊 <strong>Size:</strong> <span style="font-size: 35px;">251,277 rows across 16 columns ~78,847 unique videos</span></li>
+<li>🛠️ Key Features Used:<span style="font-size: 30px;">
 <ul>
 <li>title_length</li>
 <li>upload_hour</li>
-<li>like_ratio</li>
+<li>like_ratio<br>
+</li>
 <li>trending_days</li>
 <li>duration_minutes (from API subset)</li>
-</ul></li>
+</ul></span></li>
 </ul>
-</div><p>🔍 Focused only on metadata available before a video trends</p>
-</div>
+<p>🔍 Focused only on metadata available before a video trends</p>
 </section>
-
-<section>
-<section id="eda-insight-when-to-upload" class="title-slide slide level1 center">
-<h1>EDA Insight: When to Upload?</h1>
+<section id="eda-insight-when-to-upload" class="slide level2">
+<h2>EDA Insight: When to Upload?</h2>
 <div class="column" style="width:100%;">
 <ul>
 <li>🌙 Highest average views are for videos uploaded <strong>between midnight and 3 AM</strong></li>
@@ -208,63 +196,62 @@ Can we predict whether a YouTube video will get high engagement using just its m
 </div></section>
 <section id="section" class="slide level2 no-title-slide">
 <h2></h2>
-<img data-src="images/views_by_hour_clean.png">
-<div style="text-align: center;">
-<p><img data-src="images/views_by_hour_image.png" style="width:60.0%"></p>
-</div>
-</section></section>
-<section>
-<section id="eda-insight-2-title-length-vs.-view-count" class="title-slide slide level1 center">
-<h1>EDA Insight 2 – Title Length vs.&nbsp;View Count</h1>
+<div class="columns align-middle">
+<div class="column" style="width:80%;">
+<p><img data-src="images/views_by_hour_clean.png" class="center" style="width:100.0%"></p>
+</div><div class="column" style="width:20%;">
+<p><img data-src="images/views_by_hour_image.png" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="eda-insight-2-title-length-vs.-view-count" class="slide level2">
+<h2>EDA Insight 2 – Title Length vs.&nbsp;View Count</h2>
 <div class="column" style="width:100%;">
 <p>📌 <strong>Insight:</strong><br>
-- Longer titles (91–120 characters) get the most views<br>
-- Very short titles (31–60) perform the worst<br>
-- 0–30 and 61–90 ranges perform moderately well<br></p>
+- <strong>Longer titles</strong> (91–120 characters) get the most views<br>
+- <strong>Very short titles</strong> (31–60) perform the worst<br>
+- <strong>0–30 and 61–90</strong> ranges perform moderately well<br></p>
 <p>💡 <strong>Takeaway:</strong><br>
 Longer, descriptive titles may help a video attract more engagement</p>
 </div></section>
 <section id="section-1" class="slide level2 no-title-slide">
 <h2></h2>
 
-<img data-src="images/title_length_vs_views.png" class="r-stretch"></section></section>
-<section id="modeling-summary" class="title-slide slide level1 center">
-<h1>Modeling Summary</h1>
+<img data-src="images/title_length_vs_views.png" class="r-stretch"></section>
+<section id="modeling-summary" class="slide level2">
+<h2>Modeling Summary</h2>
 <div class="column" style="width:60%;">
-<p><span style="font-size: 85%;"> 🧠 <strong>Models Tried:</strong> </span></p>
-<p><span style="font-size: 80%;"> - Logistic Regression<br>
+<p><span style="font-size: 80%;">🧠 <strong>Models Tried:</strong></span></p>
+<p><span style="font-size: 75%;">- Logistic Regression<br>
 - Decision Tree<br>
 - Random Forest<br>
-- XGBoost (with hyperparameter tuning) </span></p>
-</div><div class="column" style="width:40%;">
-<p><span style="font-size: 85%;"> 🏆 <strong>Top Performer: XGBoost</strong><br>
-</span> <span style="font-size: 80%;"> - ROC AUC: <strong>0.85</strong><br>
-- Accuracy: <strong>0.78</strong> </span></p>
+- XGBoost (with hyperparameter tuning)</span></p>
+</div><div class="column" style="width:30%;">
+<p><span style="font-size: 85%;">🏆 <strong>Top Performer: XGBoost</strong><br>
+</span> <span style="font-size: 80%;">- ROC AUC: <strong>0.85</strong><br>
+- Accuracy: <strong>0.78</strong></span></p>
 </div><div style="text-align: center;">
 <p><img data-src="images/model_summary.png" height="350"></p>
 </div>
 </section>
-
-<section>
-<section id="evaluation-highlights" class="title-slide slide level1 center">
-<h1>Evaluation Highlights</h1>
+<section id="evaluation-highlights" class="slide level2">
+<h2>Evaluation Highlights</h2>
 <p><span style="font-size: 90%;"></span></p>
 <div class="columns">
-<div class="column bordered" style="width:50%;">
+<div class="column bordered" style="width:45%;">
 <p>📊 <strong>Tuned XGBoost using RandomizedSearchCV</strong><br>
-- <code>max_depth = 7</code><br>
+<span style="font-size: 35px;"> - <code>max_depth = 7</code><br>
 - <code>n_estimators = 200</code><br>
 - <code>learning_rate = 0.2</code><br>
-- <code>scale_pos_weight = 3</code></p>
+- <code>scale_pos_weight = 3</code> </span></p>
 </div><div class="column" style="width:40%;">
 <p>📈 <strong>Class 1 Performance</strong><br>
-- Precision: <strong>0.55</strong><br>
+<span style="font-size: 35px;"> - Precision: <strong>0.55</strong><br>
 - Recall: <strong>0.74</strong><br>
 - ROC AUC: <strong>0.85</strong><br>
-- Accuracy: <strong>0.78</strong></p>
-</div><p>🧠 XGBoost balances depth and learning rate to handle imbalanced labels effectively.<br>
+- Accuracy: <strong>0.78</strong> </span></p>
+</div><p><span style="font-size: 35px;"> 🧠 XGBoost balances depth and learning rate to handle imbalanced labels effectively.<br>
 📌 High recall on positive class helps flag trending videos better.<br>
-🎯 Still room to improve precision using advanced tuning.</p>
+🎯 Still room to improve precision using advanced tuning. </span></p>
 </div>
 <p></p>
 </section>
@@ -282,22 +269,20 @@ Longer, descriptive titles may help a video attract more engagement</p>
 <li>📎 Extra features like video duration (via API) supported richer insights</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="what-i-learned">What I Learned</h3>
+<section id="what-i-learned" class="slide level2">
+<h2>What I Learned</h2>
 <div class="column" style="width:60%;">
 <ul>
-<li>🧪 Combining datasets improved both context and quality</li>
-<li>🧹 Feature engineering can be more impactful than just model choice</li>
+<li>🧪 Combining datasets improved both context and quality<br></li>
+<li>🧹 Feature engineering can be more impactful than just model choice<br></li>
 <li>📦 Reproducible workflows (like Quarto + Jupyter) made storytelling smoother</li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:30%;">
 <p><img data-src="images/what_I_learned.png"></p>
 </div></section>
-<section class="slide level2">
-
-<h3 id="whats-next">What’s Next</h3>
-<div class="column" style="width:70%;">
+<section id="whats-next" class="slide level2">
+<h2>What’s Next</h2>
+<div class="column" style="width:60%;">
 <ul>
 <li>🔄 Try deeper model tuning and ensemble techniques</li>
 <li>💬 Use NLP to analyze video titles and tags</li>
@@ -305,7 +290,7 @@ Longer, descriptive titles may help a video attract more engagement</p>
 </ul>
 </div><div class="column" style="width:30%;">
 <p><img data-src="images/whats_next.png"></p>
-</div></section></section>
+</div></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

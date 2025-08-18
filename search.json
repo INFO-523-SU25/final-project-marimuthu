@@ -154,6 +154,55 @@
     "text": "from googleapiclient.discovery import build\nimport pandas as pd\nfrom dotenv import load_dotenv\nimport os\n\n# Replace with your API key\nload_dotenv()  # take environment variables from .env\napi_key = os.getenv(\"YOUTUBE_API_KEY\")\n\nyoutube = build(\"youtube\", \"v3\", developerKey=api_key)\n\n# Call API to get trending videos in India\nrequest = youtube.videos().list(\n    part=\"snippet,statistics,contentDetails\",\n    chart=\"mostPopular\",\n    regionCode=\"IN\",\n    maxResults=50\n)\nresponse = request.execute()\n\n# Extract and flatten data\nrecords = []\nfor item in response[\"items\"]:\n    record = {\n        \"videoId\": item[\"id\"],\n        \"title\": item[\"snippet\"][\"title\"],\n        \"channelTitle\": item[\"snippet\"][\"channelTitle\"],\n        \"categoryId\": item[\"snippet\"][\"categoryId\"],\n        \"publishedAt\": item[\"snippet\"][\"publishedAt\"],\n        \"viewCount\": item[\"statistics\"].get(\"viewCount\"),\n        \"likeCount\": item[\"statistics\"].get(\"likeCount\"),\n        \"commentCount\": item[\"statistics\"].get(\"commentCount\"),\n        \"duration\": item[\"contentDetails\"].get(\"duration\"),\n    }\n    records.append(record)\n\n# Convert to DataFrame and save\ndf = pd.DataFrame(records)\nprint(\"head \\n\",df.head())\ndf.to_csv(\"../data/youtube_api_sample.csv\", index=False)\nprint(\"Saved trending videos to data/youtube_api_sample.csv\")\n\nhead \n        videoId                                              title  \\\n0  tW3n8r7BxTY  A.R. Rahman - Maa Tujhe Salaam (Lyrics) Vande ...   \n1  vEXd4Ke7byM  Thama Teaser Announcement | Ayushmann, Rashmik...   \n2  zx8Qp3ba1lg  ZOMBIE BORDER PATROL | QUARANTINE ZONE : THE L...   \n3  CdM7bsa4m6E  Har Karam Apna Karenge | Dil Diya Hai Jaan Bhi...   \n4  QrWh3Ww3Zn0  Raghu Dakat | Official Teaser | Dev, Idhika, A...   \n\n                 channelTitle categoryId           publishedAt viewCount  \\\n0                 seventyskye         22  2025-08-14T14:01:31Z    762002   \n1               Maddock Films         24  2025-08-15T08:39:20Z   3828031   \n2               Techno Gamerz         20  2025-08-15T06:30:35Z   1860339   \n3          Bollywood Melodies         10  2025-08-14T05:30:04Z   1416304   \n4  Dev Entertainment Ventures          1  2025-08-15T04:30:30Z    313949   \n\n  likeCount commentCount  duration  \n0      6621          345   PT6M16S  \n1     56996         5162     PT43S  \n2    102336         8950  PT46M59S  \n3      6410          231    PT6M1S  \n4     24792         2525   PT1M48S  \nSaved trending videos to data/youtube_api_sample.csv"
   },
   {
+    "objectID": "presentation.html#what-why",
+    "href": "presentation.html#what-why",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "What & Why",
+    "text": "What & Why\nWhat are we solving?Can we predict whether a YouTube video will get high engagement using just its metadata?\n\n\nWhy does it matter?\n- ⏰ Timing, title, and early traction can make a huge difference\n- 🧑‍🏫 Creators can optimize effort and boost visibility\n- 📈 Modeling can guide strategy and platform recommendations"
+  },
+  {
+    "objectID": "presentation.html#how-we-approached-it",
+    "href": "presentation.html#how-we-approached-it",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "How We Approached It",
+    "text": "How We Approached It\n\n\n\n🧹 Cleaned and explored video metadata\n\n🛠️ Engineered features: title_length, upload_hour, like_ratio, duration_minutes\n\n🎯 Framed task as binary classification (top 25% views = high engagement)\n\n🤖 Trained Logistic Regression, Decision Tree, Random Forest and XGBoost\n🧪 Compared using Accuracy and ROC-AUC"
+  },
+  {
+    "objectID": "presentation.html#the-dataset",
+    "href": "presentation.html#the-dataset",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "The Dataset",
+    "text": "The Dataset\n\n📦 Source: India YouTube Trending Video Dataset (Kaggle)\n📊 Size: 251,277 rows across 16 columns ~78,847 unique videos\n🛠️ Key Features Used:\n\ntitle_length\nupload_hour\nlike_ratio\n\ntrending_days\nduration_minutes (from API subset)\n\n\n🔍 Focused only on metadata available before a video trends"
+  },
+  {
+    "objectID": "presentation.html#eda-insight-when-to-upload",
+    "href": "presentation.html#eda-insight-when-to-upload",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "EDA Insight: When to Upload?",
+    "text": "EDA Insight: When to Upload?\n\n\n🌙 Highest average views are for videos uploaded between midnight and 3 AM\n🌅 View counts steadily drop during the day and hit a low in the evening\n📌 Upload timing may impact visibility - uploading early may improve reach"
+  },
+  {
+    "objectID": "presentation.html#eda-insight-2-title-length-vs.-view-count",
+    "href": "presentation.html#eda-insight-2-title-length-vs.-view-count",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "EDA Insight 2 – Title Length vs. View Count",
+    "text": "EDA Insight 2 – Title Length vs. View Count\n\n📌 Insight:\n- Longer titles (91–120 characters) get the most views\n- Very short titles (31–60) perform the worst\n- 0–30 and 61–90 ranges perform moderately well\n💡 Takeaway:\nLonger, descriptive titles may help a video attract more engagement"
+  },
+  {
+    "objectID": "presentation.html#modeling-summary",
+    "href": "presentation.html#modeling-summary",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "Modeling Summary",
+    "text": "Modeling Summary\n\n🧠 Models Tried:\n- Logistic Regression\n- Decision Tree\n- Random Forest\n- XGBoost (with hyperparameter tuning)\n\n🏆 Top Performer: XGBoost\n - ROC AUC: 0.85\n- Accuracy: 0.78"
+  },
+  {
+    "objectID": "presentation.html#evaluation-highlights",
+    "href": "presentation.html#evaluation-highlights",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "Evaluation Highlights",
+    "text": "Evaluation Highlights\n\n\n\n📊 Tuned XGBoost using RandomizedSearchCV\n - max_depth = 7\n- n_estimators = 200\n- learning_rate = 0.2\n- scale_pos_weight = 3 \n\n📈 Class 1 Performance\n - Precision: 0.55\n- Recall: 0.74\n- ROC AUC: 0.85\n- Accuracy: 0.78 \n 🧠 XGBoost balances depth and learning rate to handle imbalanced labels effectively.\n📌 High recall on positive class helps flag trending videos better.\n🎯 Still room to improve precision using advanced tuning."
+  },
+  {
     "objectID": "presentation.html#section-2",
     "href": "presentation.html#section-2",
     "title": "Modeling and Predicting YouTube Engagement",
@@ -166,5 +215,19 @@
     "title": "Modeling and Predicting YouTube Engagement",
     "section": "Key Takeaways & Reflection",
     "text": "Key Takeaways & Reflection\n\n📊 Metadata alone (like title, upload hour, like ratio) has strong predictive value\n🕗 Upload hour and 📏 title length showed clear patterns during EDA\n🧠 XGBoost delivered the best results (ROC AUC: 0.85) after tuning\n⚖️ We addressed class imbalance and refined noisy engagement signals\n📎 Extra features like video duration (via API) supported richer insights"
+  },
+  {
+    "objectID": "presentation.html#what-i-learned",
+    "href": "presentation.html#what-i-learned",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "What I Learned",
+    "text": "What I Learned\n\n\n🧪 Combining datasets improved both context and quality\n🧹 Feature engineering can be more impactful than just model choice\n📦 Reproducible workflows (like Quarto + Jupyter) made storytelling smoother"
+  },
+  {
+    "objectID": "presentation.html#whats-next",
+    "href": "presentation.html#whats-next",
+    "title": "Modeling and Predicting YouTube Engagement",
+    "section": "What’s Next",
+    "text": "What’s Next\n\n\n🔄 Try deeper model tuning and ensemble techniques\n💬 Use NLP to analyze video titles and tags\n📈 Apply model suggestions to real-world content strategy"
   }
 ]
