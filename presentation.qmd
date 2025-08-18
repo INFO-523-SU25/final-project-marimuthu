@@ -1,9 +1,10 @@
 ---
-title: "Project title"
+title: "Modeling and Predicting YouTube Engagement" 
 subtitle: "INFO 523 - Summer 2025 - Final Project"
-author: "Author names"
+author: Ashok kumar Marimuthu
+
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/youtube-analytics-bg.png
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
@@ -24,6 +25,18 @@ execute:
 # Load packages here
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split,RandomizedSearchCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, roc_auc_score, confusion_matrix, roc_curve,auc,ConfusionMatrixDisplay
+from googleapiclient.discovery import build
+from dotenv import load_dotenv
+import os
+import isodate
+from xgboost import XGBClassifier
 
 ```
 
@@ -41,127 +54,183 @@ plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['figure.figsize'] = (6, 6 * 0.618)
 ```
 
-```{python}
-#| label: load-data
-#| include: false
-# Load data in Python
-mtcars = sns.load_dataset('mpg').dropna()  # mtcars dataset is similar to the mpg dataset from seaborn
-mtcars['speed'] = mtcars['horsepower'] / mtcars['weight']
+# What & Why
 
-penguins = sns.load_dataset('penguins').dropna()
-```
+:::{.columns}
 
-# Using Quarto for presentations
+::: {.column width="65%"}
+**What are we solving?**  
+Can we predict whether a YouTube video will get high engagement using just its metadata?
 
-## Quarto
-
--   The presentation is created using the Quarto CLI
-
--   `##` sets the start of a new slide
-
-## Layouts
-
-You can use plain text
-
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
+**Why does it matter?**  
+- ⏰ Timing, title, and early traction can make a huge difference  
+- 🧑‍🏫 Creators can optimize effort and boost visibility  
+- 📈 Modeling can guide strategy and platform recommendations
 :::
+
+::: {.column width="35%"}
+![](images/youtube_chart_clean.jpg){width=100%}
+:::
+
+:::
+
+# How We Approached It
+:::{.columns}
+::: {.column width="100%"}
+- 🧹 Cleaned and explored video metadata  
+- 🛠️ Engineered features: `title_length`, `upload_hour`, `like_ratio`, `duration_minutes`  
+- 🎯 Framed task as binary classification (top 25% views = high engagement)  
+- 🤖 Trained Logistic Regression, Decision Tree, Random Forest and **XGBoost**
+- 🧪 Compared using Accuracy and ROC-AUC
+:::
+:::
+
+# The Dataset
+
+:::{.columns.with-divider}
+::: {.column width="40%" .bordered}
+- 📦 Source:
+
+  India YouTube Trending Video Dataset (Kaggle)
+
+- 📊 Size:
+
+  251,277 rows across 16 columns
+  ~78,847 unique videos
+:::
+::: {.column width="52%"}
+- 🛠️ Key Features Used:
+    - title_length
+    - upload_hour
+    - like_ratio
+    - trending_days
+    - duration_minutes (from API subset)
+:::
+🔍 Focused only on metadata available before a video trends
+:::
+
+# EDA Insight: When to Upload?
+::: {.column width="100%"}
+- 🌙 Highest average views are for videos uploaded **between midnight and 3 AM**
+- 🌅 View counts steadily drop during the day and hit a **low in the evening**
+- 📌 Upload timing may impact visibility - uploading early may improve reach
+:::
+
+## {.no-title-slide }
+![](images/views_by_hour_clean.png)
+<div style="text-align: center;">
+![](images/views_by_hour_image.png){width=60%}
+</div>
+
+
+# EDA Insight 2 – Title Length vs. View Count
+::: {.column width="100%"}
+📌 **Insight:**  
+- Longer titles (91–120 characters) get the most views  
+- Very short titles (31–60) perform the worst  
+- 0–30 and 61–90 ranges perform moderately well<br>
+
+
+💡 **Takeaway:**  
+Longer, descriptive titles may help a video attract more engagement
+:::
+
+## {.no-title-slide}
+![](images/title_length_vs_views.png)
+
+
+# Modeling Summary
 
 ::: {.column width="60%"}
-or in two columns
+<span style="font-size: 85%;">
+🧠 **Models Tried:**
+</span>
+
+<span style="font-size: 80%;">
+- Logistic Regression  
+- Decision Tree  
+- Random Forest  
+- XGBoost (with hyperparameter tuning)
+</span>
+
 :::
+::: {.column width="40%"}
+<span style="font-size: 85%;">
+🏆 **Top Performer: XGBoost**  
+</span>
+<span style="font-size: 80%;">
+- ROC AUC: **0.85**  
+- Accuracy: **0.78**
+</span>
 :::
+<div style="text-align: center;">
+![](images/model_summary.png){height=350px}
+</div>
 
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
-
-```{python}
-from sklearn.linear_model import LinearRegression
-import statsmodels.api as sm
-import pandas as pd
-
-# Fit a linear regression model
-X = mtcars[['speed']]
-y = mtcars['mpg']
-model = LinearRegression().fit(X, y)
-
-# Summary of the model
-X2 = sm.add_constant(X)
-est = sm.OLS(y, X2)
-est2 = est.fit()
-print(est2.summary())
-```
-
-## Plots
-
-```{python}
-penguins['species'] = penguins['species'].apply(lambda x: "Adelie" if x == "Adelie" else "Other")
-sns.scatterplot(data=penguins, x='flipper_length_mm', y='body_mass_g', hue='species')
-plt.show()
-```
-
-## Plot and text
+# Evaluation Highlights
+<span style="font-size: 90%;">
 
 ::: columns
-::: {.column width="50%"}
--   Some text
+::: {.column width="50%".bordered}
 
--   goes here
+📊 **Tuned XGBoost using RandomizedSearchCV**  
+- `max_depth = 7`  
+- `n_estimators = 200`  
+- `learning_rate = 0.2`  
+- `scale_pos_weight = 3`
+
 :::
 
-::: {.column width="50%"}
-```{python}
-#| warning: false
-#| fig.width: 5.5
-fig, ax = plt.subplots(figsize=(5.5, 5.5 * 0.618))
-sns.boxplot(data=penguins, x='bill_length_mm', y='species', hue='species', ax=ax)
-plt.show()
-```
+::: {.column width="40%"}
+
+📈 **Class 1 Performance**  
+- Precision: **0.55**  
+- Recall: **0.74**  
+- ROC AUC: **0.85**  
+- Accuracy: **0.78**
+
 :::
+🧠 XGBoost balances depth and learning rate to handle imbalanced labels effectively.  
+📌 High recall on positive class helps flag trending videos better.  
+🎯 Still room to improve precision using advanced tuning.
+:::
+</span>
+
+## {.no-title-slide}
+![Model ROC Curve Comparison](images/roc_comparison.png){width=100%}
+
+
+
+## Key Takeaways & Reflection
+
+- 📊 Metadata alone (like title, upload hour, like ratio) has strong predictive value
+- 🕗 Upload hour and 📏 title length showed clear patterns during EDA
+- 🧠 XGBoost delivered the best results (ROC AUC: **0.85**) after tuning
+- ⚖️ We addressed class imbalance and refined noisy engagement signals
+- 📎 Extra features like video duration (via API) supported richer insights
+
+---
+
+### What I Learned
+
+::: {.column width="60%"}
+
+- 🧪 Combining datasets improved both context and quality
+- 🧹 Feature engineering can be more impactful than just model choice
+- 📦 Reproducible workflows (like Quarto + Jupyter) made storytelling smoother
 :::
 
-# A new section...
+::: {.column width="40%"}
+![](images/what_I_learned.png)
+:::
+---
 
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{python}
-penguins.head().to_html()
-```
-
-## Images
-
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
-
-## Math Expressions {.smaller}
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
-
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+### What’s Next
+::: {.column width="70%"}
+- 🔄 Try deeper model tuning and ensemble techniques
+- 💬 Use NLP to analyze video titles and tags
+- 📈 Apply model suggestions to real-world content strategy
+:::
+::: {.column width="30%"}
+![](images/whats_next.png)
+:::

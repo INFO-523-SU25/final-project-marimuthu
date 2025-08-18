@@ -1,3 +1,50 @@
 /*-- scss:defaults --*/
 
 $body-bg: #ffffff;
+
+.reveal h1.title {
+  color: white;
+  -webkit-text-stroke: 0.5px black;
+}
+
+.reveal h2,
+.reveal .subtitle {
+  color: #f6f7f8;  
+}
+
+.reveal .author,
+.reveal .quarto-title-author {
+  color: #69f0fa !important;
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+}
+
+.reveal .columns.with-divider {
+  display: flex;
+  gap: 1.5em;
+}
+
+.reveal .columns.with-divider .column {
+  position: relative;
+  padding: 0 1em;
+}
+
+.reveal .columns.with-divider .column:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  right: 0;
+  width: 1px;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.2);
+  filter: blur(1px);  
+}
+
+.reveal .column.bordered {
+  border-right: 2px solid rgba(0, 0, 0, 0.2); 
+  padding-right: 1em;
+  margin-right: 1em;
+}
+
+.reveal .slide .center {
+  padding-top: 2vh; /* tweak this value as needed */
+}
