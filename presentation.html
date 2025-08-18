@@ -9,8 +9,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <meta name="author" content="Author names">
-  <title>Modeling and Predicting YouTube Engagement – Project title</title>
+  <meta name="author" content="Ashok kumar Marimuthu">
+  <title>Modeling and Predicting YouTube Engagement</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-6cdba8845797a0b5a60f808f0334ef8f.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-528feb55a637206dacf39507b99053c4.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -126,382 +126,186 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/watercolour_sys02_img34_teacup-ocean.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Project title</h1>
+<section id="title-slide" data-background-image="images/youtube-analytics-bg.png" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Modeling and Predicting YouTube Engagement</h1>
   <p class="subtitle">INFO 523 - Summer 2025 - Final Project</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author names 
+Ashok kumar Marimuthu 
 </div>
 </div>
 </div>
 
 </section>
-<section>
-<section id="using-quarto-for-presentations" class="title-slide slide level1 center">
-<h1>Using Quarto for presentations</h1>
-
-</section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<ul>
-<li><p>The presentation is created using the Quarto CLI</p></li>
-<li><p><code>##</code> sets the start of a new slide</p></li>
-</ul>
-</section>
-<section id="layouts" class="slide level2">
-<h2>Layouts</h2>
-<p>You can use plain text</p>
+<section id="what-why" class="title-slide slide level1 center">
+<h1>What &amp; Why</h1>
 <div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>or bullet points<sup>1</sup></li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p>or in two columns</p>
+<div class="column" style="width:65%;">
+<p><strong>What are we solving?</strong><br>
+Can we predict whether a YouTube video will get high engagement using just its metadata?</p>
+<p><strong>Why does it matter?</strong><br>
+- ⏰ Timing, title, and early traction can make a huge difference<br>
+- 🧑‍🏫 Creators can optimize effort and boost visibility<br>
+- 📈 Modeling can guide strategy and platform recommendations</p>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/youtube_chart_clean.jpg" style="width:100.0%"></p>
 </div></div>
-<ul>
-<li><p>like</p></li>
-<li><p>this</p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>And add footnotes</p></li></ol></aside></section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<div id="8e20246e" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                    mpg   R-squared:                       0.073
-Model:                            OLS   Adj. R-squared:                  0.070
-Method:                 Least Squares   F-statistic:                     30.59
-Date:                Fri, 01 Aug 2025   Prob (F-statistic):           5.84e-08
-Time:                        20:32:41   Log-Likelihood:                -1346.4
-No. Observations:                 392   AIC:                             2697.
-Df Residuals:                     390   BIC:                             2705.
-Df Model:                           1                                         
-Covariance Type:            nonrobust                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-const         35.8015      2.266     15.800      0.000      31.347      40.257
-speed       -354.7055     64.129     -5.531      0.000    -480.788    -228.623
-==============================================================================
-Omnibus:                       27.687   Durbin-Watson:                   0.589
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.976
-Skew:                           0.420   Prob(JB):                     7.57e-05
-Kurtosis:                       2.323   Cond. No.                         169.
-==============================================================================
+</section>
 
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
-</div>
-</div>
-</section>
-<section id="plots" class="slide level2">
-<h2>Plots</h2>
-<div id="abb2ef27" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.png" width="1673" height="1070"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="plot-and-text" class="slide level2">
-<h2>Plot and text</h2>
+<section id="how-we-approached-it" class="title-slide slide level1 center">
+<h1>How We Approached It</h1>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:100%;">
 <ul>
-<li><p>Some text</p></li>
-<li><p>goes here</p></li>
+<li>🧹 Cleaned and explored video metadata<br>
+</li>
+<li>🛠️ Engineered features: <code>title_length</code>, <code>upload_hour</code>, <code>like_ratio</code>, <code>duration_minutes</code><br>
+</li>
+<li>🎯 Framed task as binary classification (top 25% views = high engagement)<br>
+</li>
+<li>🤖 Trained Logistic Regression, Decision Tree, Random Forest and <strong>XGBoost</strong></li>
+<li>🧪 Compared using Accuracy and ROC-AUC</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="145860d7" class="cell" data-fig.width="5.5" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="presentation_files/figure-revealjs/cell-7-output-1.png" width="1585" height="998"></p>
-</figure>
-</div>
-</div>
-</div>
 </div></div>
-</section></section>
-<section>
-<section id="a-new-section" class="title-slide slide level1 center">
-<h1>A new section…</h1>
-
 </section>
-<section id="tables" class="slide level2">
-<h2>Tables</h2>
-<p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<div id="c3f0e778" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
-<table border="1" class="dataframe">
 
-<thead>
-
-<tr style="text-align: right;">
-
-<th>
-</th>
-
-<th>
-species
-</th>
-
-<th>
-island
-</th>
-
-<th>
-bill_length_mm
-</th>
-
-<th>
-bill_depth_mm
-</th>
-
-<th>
-flipper_length_mm
-</th>
-
-<th>
-body_mass_g
-</th>
-
-<th>
-sex
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<th>
-0
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.1
-</td>
-
-<td>
-18.7
-</td>
-
-<td>
-181.0
-</td>
-
-<td>
-3750.0
-</td>
-
-<td>
-Male
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-1
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.5
-</td>
-
-<td>
-17.4
-</td>
-
-<td>
-186.0
-</td>
-
-<td>
-3800.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-2
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-40.3
-</td>
-
-<td>
-18.0
-</td>
-
-<td>
-195.0
-</td>
-
-<td>
-3250.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-4
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-36.7
-</td>
-
-<td>
-19.3
-</td>
-
-<td>
-193.0
-</td>
-
-<td>
-3450.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-5
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.3
-</td>
-
-<td>
-20.6
-</td>
-
-<td>
-190.0
-</td>
-
-<td>
-3650.0
-</td>
-
-<td>
-Male
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
-</section>
-<section id="images" class="slide level2">
-<h2>Images</h2>
-
-<img data-src="images/watercolour_sys02_img34_teacup-ocean.png" width="500" class="r-stretch quarto-figure-center"><p class="caption">Image credit: Danielle Navarro, Percolate.</p></section>
-<section id="math-expressions" class="slide level2 smaller">
-<h2>Math Expressions</h2>
-<p>You can write LaTeX math expressions inside a pair of dollar signs, e.g.&nbsp;$\alpha+\beta$ renders <span class="math inline">\(\alpha + \beta\)</span>. You can use the display style with double dollar signs:</p>
-<pre><code>$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$</code></pre>
-<p><span class="math display">\[
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span></p>
-<p>Limitations:</p>
-<ol type="1">
-<li><p>The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting <code>$$</code> must appear in the very beginning of a line, followed immediately by a non-space character, and the ending <code>$$</code> must be at the end of a line, led by a non-space character;</p></li>
-<li><p>There should not be spaces after the opening <code>$</code> or before the closing <code>$</code>.</p></li>
-</ol>
-</section></section>
-<section>
-<section id="wrap-up" class="title-slide slide level1 center">
-<h1>Wrap up</h1>
-
-</section>
-<section id="feeling-adventurous" class="slide level2">
-<h2>Feeling adventurous?</h2>
+<section id="the-dataset" class="title-slide slide level1 center">
+<h1>The Dataset</h1>
+<div class="columns.with-divider">
+<div class="column bordered" style="width:40%;">
 <ul>
-<li><p>You are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.</p></li>
-<li><p>But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.</p></li>
+<li><p>📦 Source:</p>
+<p>India YouTube Trending Video Dataset (Kaggle)</p></li>
+<li><p>📊 Size:</p>
+<p>251,277 rows across 16 columns ~78,847 unique videos</p></li>
 </ul>
+</div><div class="column" style="width:52%;">
+<ul>
+<li>🛠️ Key Features Used:
+<ul>
+<li>title_length</li>
+<li>upload_hour</li>
+<li>like_ratio</li>
+<li>trending_days</li>
+<li>duration_minutes (from API subset)</li>
+</ul></li>
+</ul>
+</div><p>🔍 Focused only on metadata available before a video trends</p>
+</div>
+</section>
 
-
+<section>
+<section id="eda-insight-when-to-upload" class="title-slide slide level1 center">
+<h1>EDA Insight: When to Upload?</h1>
+<div class="column" style="width:100%;">
+<ul>
+<li>🌙 Highest average views are for videos uploaded <strong>between midnight and 3 AM</strong></li>
+<li>🌅 View counts steadily drop during the day and hit a <strong>low in the evening</strong></li>
+<li>📌 Upload timing may impact visibility - uploading early may improve reach</li>
+</ul>
+</div></section>
+<section id="section" class="slide level2 no-title-slide">
+<h2></h2>
+<img data-src="images/views_by_hour_clean.png">
+<div style="text-align: center;">
+<p><img data-src="images/views_by_hour_image.png" style="width:60.0%"></p>
+</div>
 </section></section>
+<section>
+<section id="eda-insight-2-title-length-vs.-view-count" class="title-slide slide level1 center">
+<h1>EDA Insight 2 – Title Length vs.&nbsp;View Count</h1>
+<div class="column" style="width:100%;">
+<p>📌 <strong>Insight:</strong><br>
+- Longer titles (91–120 characters) get the most views<br>
+- Very short titles (31–60) perform the worst<br>
+- 0–30 and 61–90 ranges perform moderately well<br></p>
+<p>💡 <strong>Takeaway:</strong><br>
+Longer, descriptive titles may help a video attract more engagement</p>
+</div></section>
+<section id="section-1" class="slide level2 no-title-slide">
+<h2></h2>
 
+<img data-src="images/title_length_vs_views.png" class="r-stretch"></section></section>
+<section id="modeling-summary" class="title-slide slide level1 center">
+<h1>Modeling Summary</h1>
+<div class="column" style="width:60%;">
+<p><span style="font-size: 85%;"> 🧠 <strong>Models Tried:</strong> </span></p>
+<p><span style="font-size: 80%;"> - Logistic Regression<br>
+- Decision Tree<br>
+- Random Forest<br>
+- XGBoost (with hyperparameter tuning) </span></p>
+</div><div class="column" style="width:40%;">
+<p><span style="font-size: 85%;"> 🏆 <strong>Top Performer: XGBoost</strong><br>
+</span> <span style="font-size: 80%;"> - ROC AUC: <strong>0.85</strong><br>
+- Accuracy: <strong>0.78</strong> </span></p>
+</div><div style="text-align: center;">
+<p><img data-src="images/model_summary.png" height="350"></p>
+</div>
+</section>
+
+<section>
+<section id="evaluation-highlights" class="title-slide slide level1 center">
+<h1>Evaluation Highlights</h1>
+<p><span style="font-size: 90%;"></span></p>
+<div class="columns">
+<div class="column bordered" style="width:50%;">
+<p>📊 <strong>Tuned XGBoost using RandomizedSearchCV</strong><br>
+- <code>max_depth = 7</code><br>
+- <code>n_estimators = 200</code><br>
+- <code>learning_rate = 0.2</code><br>
+- <code>scale_pos_weight = 3</code></p>
+</div><div class="column" style="width:40%;">
+<p>📈 <strong>Class 1 Performance</strong><br>
+- Precision: <strong>0.55</strong><br>
+- Recall: <strong>0.74</strong><br>
+- ROC AUC: <strong>0.85</strong><br>
+- Accuracy: <strong>0.78</strong></p>
+</div><p>🧠 XGBoost balances depth and learning rate to handle imbalanced labels effectively.<br>
+📌 High recall on positive class helps flag trending videos better.<br>
+🎯 Still room to improve precision using advanced tuning.</p>
+</div>
+<p></p>
+</section>
+<section id="section-2" class="slide level2 no-title-slide">
+<h2></h2>
+
+<img data-src="images/roc_comparison.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Model ROC Curve Comparison</p></section>
+<section id="key-takeaways-reflection" class="slide level2">
+<h2>Key Takeaways &amp; Reflection</h2>
+<ul>
+<li>📊 Metadata alone (like title, upload hour, like ratio) has strong predictive value</li>
+<li>🕗 Upload hour and 📏 title length showed clear patterns during EDA</li>
+<li>🧠 XGBoost delivered the best results (ROC AUC: <strong>0.85</strong>) after tuning</li>
+<li>⚖️ We addressed class imbalance and refined noisy engagement signals</li>
+<li>📎 Extra features like video duration (via API) supported richer insights</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="what-i-learned">What I Learned</h3>
+<div class="column" style="width:60%;">
+<ul>
+<li>🧪 Combining datasets improved both context and quality</li>
+<li>🧹 Feature engineering can be more impactful than just model choice</li>
+<li>📦 Reproducible workflows (like Quarto + Jupyter) made storytelling smoother</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/what_I_learned.png"></p>
+</div></section>
+<section class="slide level2">
+
+<h3 id="whats-next">What’s Next</h3>
+<div class="column" style="width:70%;">
+<ul>
+<li>🔄 Try deeper model tuning and ensemble techniques</li>
+<li>💬 Use NLP to analyze video titles and tags</li>
+<li>📈 Apply model suggestions to real-world content strategy</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/whats_next.png"></p>
+</div></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
